@@ -1,14 +1,17 @@
 
-# Distributed Tokenization and Embeddings Generation with Hadoop
-## Created by: Yashvardhan Udia, yudia2@uic.edu
-This Scala project implements a distributed system for tokenization and embeddings generation using Hadoop's MapReduce framework. 
-It processes huge text corpus to create tokens and subsequently generates word embeddings using advanced techniques (like sliding window).
+# Cloudy with a chance of LLM: Distributed Tokenization and Embeddings Generation with Hadoop and AWS EMR
+### Created by: Yashvardhan Udia
+### Email: yudia2@uic.edu
+### NET ID: 656090513
+
+This Scala project implements a distributed system for tokenization and embeddings generation using Hadoop's MapReduce framework and Sparks training loops for LLM training.
+It processes huge text corpus(from Project Gutenburg) to create tokens with frequencies and subsequently generates word embeddings using advanced techniques (like sliding window).
 
 ## Overview
 
-- This Scala project leverages the Hadoop MapReduce framework to process text data efficiently. 
-- The primary focus is on tokenization and the generation of word embeddings from input text. 
-- The project consists of mappers and reducers that handle the tasks of breaking down text into manageable pieces (shards) and creating numerical representations (embeddings) for further analysis. 
+- This Scala project leverages the Sparks Training loops to process text data efficiently. 
+- The primary focus is on training an LLM. 
+- The project uses a pre-generated embeddings.csv file and uses these to train an LLM model using the sliding window technique. 
 - This approach is particularly useful in natural language processing (NLP) applications, where large volumes of text data need to be processed and analyzed.
 
 ## Project Structure
@@ -28,10 +31,12 @@ project-root/
 │   │       └── application.conf         # Configuration settings for the application
 │   ├── test/
 │   │   └── scala/
-│   │       ├── TokenizationMapperTest.scala # Test suite for TokenizationMapper
-│   │       ├── TokenizationReducerTest.scala # Test suite for TokenizationReducer
-│   │       ├── EmbeddingMapperTest.scala     # Test suite for EmbeddingMapper
-│   │       └── EmbeddingReducerTest.scala     # Test suite for EmbeddingReducer
+│   │       ├── FetchEmbdEdgeCasesSpec.scala # Test suite for TokenizationMapper
+│   │       ├── SparkTrainErrorHandlingSpec.scala # Test suite for TokenizationReducer
+│   │       ├── WindowedDataSpec.scala     # Test suite for EmbeddingMapper
+│   │       └── SparkTrainSpec.scala     # Test suite for EmbeddingReducer
+│   │       └── MapReduceSpec.scala
+│   │       └── FetchEmbdSpec.scala
 ```
 ## Features
 
@@ -42,8 +47,10 @@ project-root/
 
 - Scala 3.5 
 - Hadoop 3.3.6
+- Spark 3.5.3
 - Java SE Development Kit 11
 - SBT (Scala Build Tool) version (1.10.1)
+- dl4j 1.0.0-M2.1
 
 
 ## Getting Started
@@ -56,34 +63,141 @@ project-root/
 ~~~
 cd /path/to/root/folder/
 ~~~
-3. **Build the Application**: ``` sbt compile ```
-4. **Run the Application**: 
+3. **Build the Application JAR**: ``` sbt clean compile assembly ```
+4. **Run the Application**: Paths are for reference
 ~~~
-sbt run MapReduce "C:/441 Cloud/Project/Cloud LLM/src/main/resources/input/pg1.txt" "C:/441 Cloud/Project/Cloud LLM/src/main/resources/output" "C:/441 Cloud/Project/Cloud LLM/src/main/resources/output/embeddings.csv"
+spark-submit --class MapReduce --master local[4] "C:\441 Cloud\Project\Cloud LLM\target\scala-2.12\Cloud LLM-assembly-0.1.0-SNAPSHOT.jar" "C:/441 Cloud/Project/Cloud LLM/src/main/resources/input/pg1.txt" "C:/441 Cloud/Project/Cloud LLM/src/main/resources/output" "C:/441 Cloud/Project/Cloud LLM/src/main/resources/output/embeddings.csv"
 ~~~
-5. **Detailed output**: Output commands (commented) are provided to see other type of messages but by default only snapshot at each process are displayed.
-6. **Logging**: If logs are needed in a .txt file or cmd doesn't display all the output (due to buffer limits) please use : ``` sbt run > file_name.txt ``` which will create a file in root directory.
-7. **Input variations**: Different input .dot files are already placed in the root folder which can be run by modifying the name in ```val neighborMap = readNeighborMap("neighbors50.dot")``` line. Just replace the file_name with the input files.
+5. **Detailed output**: Output abput the scores are displayed in the logs.
+
 
 ## Result
 
-A sample output of the default execution with a distributed system of 50 processes should look like this:
+A sample output of trained LLM model's configuration.json file:
 ```
-21:50:29.977 [MainSystem-akka.actor.default-dispatcher-15] INFO Main$ -- ------Process 0 is initiating Global snapshot---------------------------
-21:50:29.977 [MainSystem-akka.actor.default-dispatcher-15] INFO Process$ -- Snapshot at Process 0 - Balance: 1400
-21:50:29.977 [MainSystem-akka.actor.default-dispatcher-15] INFO Process$ -- In-transit messages at Process 0: BasicMessage(50,false,Actor[akka://MainSystem/user/Process0#-1189977513],1611919085)
-21:50:29.977 [MainSystem-akka.actor.default-dispatcher-15] INFO Process$ -- Snapshot at Process 1 - Balance: 1350
-21:50:29.977 [MainSystem-akka.actor.default-dispatcher-15] INFO Process$ -- In-transit messages at Process 1: BasicMessage(50,false,Actor[akka://MainSystem/user/Process1#1374816528],-147024887)
-21:50:29.977 [MainSystem-akka.actor.default-dispatcher-9] INFO Process$ -- Snapshot at Process 2 - Balance: 1300
-21:50:29.977 [MainSystem-akka.actor.default-dispatcher-9] INFO Process$ -- In-transit messages at Process 2: BasicMessage(50,false,Actor[akka://MainSystem/user/Process2#334153570],522518737)
-21:50:29.977 [MainSystem-akka.actor.default-dispatcher-9] INFO Process$ -- Snapshot at Process 5 - Balance: 1300
-21:50:29.977 [MainSystem-akka.actor.default-dispatcher-9] INFO Process$ -- In-transit messages at Process 5: BasicMessage(50,false,Actor[akka://MainSystem/user/Process5#597214855],2072585345)
-21:50:29.977 [MainSystem-akka.actor.default-dispatcher-9] INFO Process$ -- Snapshot at Process 3 - Balance: 1350
-21:50:29.977 [MainSystem-akka.actor.default-dispatcher-9] INFO Process$ -- In-transit messages at Process 3: BasicMessage(50,false,Actor[akka://MainSystem/user/Process3#1532376064],-1795248733)
-21:50:29.977 [MainSystem-akka.actor.default-dispatcher-9] INFO Process$ -- Snapshot at Process 4 - Balance: 1300
-21:50:29.977 [MainSystem-akka.actor.default-dispatcher-9] INFO Process$ -- In-transit messages at Process 4: BasicMessage(50,false,Actor[akka://MainSystem/user/Process4#-816355357],1641078167)
-21:50:29.977 [MainSystem-akka.actor.default-dispatcher-9] INFO Main$ -- All processes have completed their snapshot, ready for next snapshot.
+{
+  "backpropType" : "Standard",
+  "cacheMode" : "NONE",
+  "confs" : [ {
+    "cacheMode" : "NONE",
+    "dataType" : "FLOAT",
+    "epochCount" : 5,
+    "iterationCount" : 0,
+    "layer" : {
+      "@class" : "org.deeplearning4j.nn.conf.layers.DenseLayer",
+      "activationFn" : {
+        "@class" : "org.nd4j.linalg.activations.impl.ActivationReLU",
+        "max" : null,
+        "negativeSlope" : null,
+        "threshold" : null
+      },
+      "biasInit" : 0.0,
+      "biasUpdater" : null,
+      "constraints" : null,
+      "gainInit" : 1.0,
+      "gradientNormalization" : "None",
+      "gradientNormalizationThreshold" : 1.0,
+      "hasBias" : true,
+      "hasLayerNorm" : false,
+      "idropout" : null,
+      "iupdater" : {
+        "@class" : "org.nd4j.linalg.learning.config.Adam",
+        "beta1" : 0.9,
+        "beta2" : 0.999,
+        "epsilon" : 1.0E-8,
+        "learningRate" : "NaN",
+        "learningRateSchedule" : {
+          "@class" : "org.nd4j.linalg.schedule.ExponentialSchedule",
+          "gamma" : 0.96,
+          "initialValue" : 0.01,
+          "scheduleType" : "EPOCH"
+        }
+      },
+      "layerName" : "layer0",
+      "nin" : 400,
+      "nout" : 100,
+      "regularization" : [ ],
+      "regularizationBias" : [ ],
+      "timeDistributedFormat" : null,
+      "weightInitFn" : {
+        "@class" : "org.deeplearning4j.nn.weights.WeightInitXavier"
+      },
+      "weightNoise" : null
+    },
+    "maxNumLineSearchIterations" : 5,
+    "miniBatch" : true,
+    "minimize" : true,
+    "optimizationAlgo" : "STOCHASTIC_GRADIENT_DESCENT",
+    "seed" : 42,
+    "stepFunction" : null,
+    "variables" : [ "W", "b" ]
+  }, {
+    "cacheMode" : "NONE",
+    "dataType" : "FLOAT",
+    "epochCount" : 5,
+    "iterationCount" : 0,
+    "layer" : {
+      "@class" : "org.deeplearning4j.nn.conf.layers.OutputLayer",
+      "activationFn" : {
+        "@class" : "org.nd4j.linalg.activations.impl.ActivationIdentity"
+      },
+      "biasInit" : 0.0,
+      "biasUpdater" : null,
+      "constraints" : null,
+      "gainInit" : 1.0,
+      "gradientNormalization" : "None",
+      "gradientNormalizationThreshold" : 1.0,
+      "hasBias" : true,
+      "idropout" : null,
+      "iupdater" : {
+        "@class" : "org.nd4j.linalg.learning.config.Adam",
+        "beta1" : 0.9,
+        "beta2" : 0.999,
+        "epsilon" : 1.0E-8,
+        "learningRate" : "NaN",
+        "learningRateSchedule" : {
+          "@class" : "org.nd4j.linalg.schedule.ExponentialSchedule",
+          "gamma" : 0.96,
+          "initialValue" : 0.01,
+          "scheduleType" : "EPOCH"
+        }
+      },
+      "layerName" : "layer1",
+      "lossFn" : {
+        "@class" : "org.nd4j.linalg.lossfunctions.impl.LossMSE"
+      },
+      "nin" : 100,
+      "nout" : 100,
+      "regularization" : [ ],
+      "regularizationBias" : [ ],
+      "timeDistributedFormat" : null,
+      "weightInitFn" : {
+        "@class" : "org.deeplearning4j.nn.weights.WeightInitXavier"
+      },
+      "weightNoise" : null
+    },
+    "maxNumLineSearchIterations" : 5,
+    "miniBatch" : true,
+    "minimize" : true,
+    "optimizationAlgo" : "STOCHASTIC_GRADIENT_DESCENT",
+    "seed" : 42,
+    "stepFunction" : null,
+    "variables" : [ "W", "b" ]
+  } ],
+  "dataType" : "FLOAT",
+  "epochCount" : 5,
+  "inferenceWorkspaceMode" : "ENABLED",
+  "inputPreProcessors" : { },
+  "iterationCount" : 5,
+  "tbpttBackLength" : 20,
+  "tbpttFwdLength" : 20,
+  "trainingWorkspaceMode" : "ENABLED",
+  "validateOutputLayerConfig" : true
+}
 ```
+
+
+
 
 
 ## Contributing
@@ -93,13 +207,8 @@ Contributions are welcome! Please fork the repository and submit pull requests w
 
 This project is licensed under the [MIT License](https://github.com/messicode/Distributed_Systems/blob/master/LICENSE.txt). Feel free to use, modify, and distribute it as per the license terms.
 
-## References
-
-- 'Distributed Algorithms-An Intuitive Approach (2nd edition) by Wan Fokkink' was heavily referred to implement this algorithm.
-- [NetGameSim](https://github.com/0x1DOCD00D/NetGameSim) graph simulator by Mark Grechanik was used to generate the input .dot files.
-- These simulations [Ref 1](https://github.com/sarangsawant/BankingApplication-Chandy-Lamport-Snapshot) and [Ref2](https://github.com/nrasadi/global-state-snapshot) were referred to understand the actual working of the algorithm in a distributed setting.
-
+## YOUTUBE DEMO (Coming soon)
+[My video]()
 ## NOTE
 
 - This project was successfully run on Windows 10 using command line
-- Every attempt is made to keep this system decentralized
