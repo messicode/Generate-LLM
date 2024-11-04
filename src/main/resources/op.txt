@@ -1,0 +1,1655 @@
+
+C:\Windows\System32>spark-submit --class MapReduce --master local[2] "C:\441 Cloud\Project\Cloud LLM\target\scala-2.12\Cloud LLM-assembly-0.1.0-SNAPSHOT.jar" "C:/441 Cloud/Project/Cloud LLM/src/main/resources/input/pg1.txt" "C:/441 Cloud/Project/Cloud LLM/src/main/resources/output" "C:/441 Cloud/Project/Cloud LLM/src/main/resources/output/embeddings.csv"
+24/11/03 22:34:34 INFO MapReduce$: C:/441 Cloud/Project/Cloud LLM/src/main/resources/input/pg1.txt
+24/11/03 22:34:34 INFO MapReduce$: C:/441 Cloud/Project/Cloud LLM/src/main/resources/output
+24/11/03 22:34:34 INFO MapReduce$: C:/441 Cloud/Project/Cloud LLM/src/main/resources/output/embeddings.csv
+24/11/03 22:34:34 INFO SparkContext: Running Spark version 3.5.3
+24/11/03 22:34:34 INFO SparkContext: OS info Windows 11, 10.0, amd64
+24/11/03 22:34:34 INFO SparkContext: Java version 11.0.23
+24/11/03 22:34:34 INFO ResourceUtils: ==============================================================
+24/11/03 22:34:34 INFO ResourceUtils: No custom resources configured for spark.driver.
+24/11/03 22:34:34 INFO ResourceUtils: ==============================================================
+24/11/03 22:34:34 INFO SparkContext: Submitted application: Sliding Window Dataset
+24/11/03 22:34:34 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 1, script: , vendor: , memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+24/11/03 22:34:34 INFO ResourceProfile: Limiting resource is cpu
+24/11/03 22:34:34 INFO ResourceProfileManager: Added ResourceProfile id: 0
+24/11/03 22:34:34 INFO SecurityManager: Changing view acls to: yashu
+24/11/03 22:34:34 INFO SecurityManager: Changing modify acls to: yashu
+24/11/03 22:34:34 INFO SecurityManager: Changing view acls groups to:
+24/11/03 22:34:34 INFO SecurityManager: Changing modify acls groups to:
+24/11/03 22:34:34 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: yashu; groups with view permissions: EMPTY; users with modify permissions: yashu; groups with modify permissions: EMPTY
+24/11/03 22:34:35 INFO Utils: Successfully started service 'sparkDriver' on port 61090.
+24/11/03 22:34:35 INFO SparkEnv: Registering MapOutputTracker
+24/11/03 22:34:35 INFO SparkEnv: Registering BlockManagerMaster
+24/11/03 22:34:35 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+24/11/03 22:34:35 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+24/11/03 22:34:35 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+24/11/03 22:34:35 INFO DiskBlockManager: Created local directory at C:\Users\yashu\AppData\Local\Temp\blockmgr-53339b35-bc75-41a6-903f-9c9155cfbcfa
+24/11/03 22:34:35 INFO MemoryStore: MemoryStore started with capacity 434.4 MiB
+24/11/03 22:34:35 INFO SparkEnv: Registering OutputCommitCoordinator
+24/11/03 22:34:35 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+24/11/03 22:34:35 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+24/11/03 22:34:35 INFO SparkContext: Added JAR file:/C:/441%20Cloud/Project/Cloud%20LLM/target/scala-2.12/Cloud%20LLM-assembly-0.1.0-SNAPSHOT.jar at spark://10.0.0.230:61090/jars/Cloud%20LLM-assembly-0.1.0-SNAPSHOT.jar with timestamp 1730694874645
+24/11/03 22:34:35 INFO Executor: Starting executor ID driver on host 10.0.0.230
+24/11/03 22:34:35 INFO Executor: OS info Windows 11, 10.0, amd64
+24/11/03 22:34:35 INFO Executor: Java version 11.0.23
+24/11/03 22:34:35 INFO Executor: Starting executor with user classpath (userClassPathFirst = false): ''
+24/11/03 22:34:35 INFO Executor: Created or updated repl class loader org.apache.spark.util.MutableURLClassLoader@583fb274 for default.
+24/11/03 22:34:35 INFO Executor: Fetching spark://10.0.0.230:61090/jars/Cloud%20LLM-assembly-0.1.0-SNAPSHOT.jar with timestamp 1730694874645
+24/11/03 22:34:35 INFO TransportClientFactory: Successfully created connection to /10.0.0.230:61090 after 35 ms (0 ms spent in bootstraps)
+24/11/03 22:34:35 INFO Utils: Fetching spark://10.0.0.230:61090/jars/Cloud%20LLM-assembly-0.1.0-SNAPSHOT.jar to C:\Users\yashu\AppData\Local\Temp\spark-25d1dcdf-e2f3-4c45-a87b-e5062bd6f65d\userFiles-69969d24-5629-42e8-ac31-0c870fe20e7f\fetchFileTemp4990577602125986879.tmp
+24/11/03 22:34:44 INFO Executor: Adding file:/C:/Users/yashu/AppData/Local/Temp/spark-25d1dcdf-e2f3-4c45-a87b-e5062bd6f65d/userFiles-69969d24-5629-42e8-ac31-0c870fe20e7f/Cloud%20LLM-assembly-0.1.0-SNAPSHOT.jar to class loader default
+24/11/03 22:34:44 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 61118.
+24/11/03 22:34:44 INFO NettyBlockTransferService: Server created on 10.0.0.230:61118
+24/11/03 22:34:44 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+24/11/03 22:34:44 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, 10.0.0.230, 61118, None)
+24/11/03 22:34:44 INFO BlockManagerMasterEndpoint: Registering block manager 10.0.0.230:61118 with 434.4 MiB RAM, BlockManagerId(driver, 10.0.0.230, 61118, None)
+24/11/03 22:34:44 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, 10.0.0.230, 61118, None)
+24/11/03 22:34:44 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, 10.0.0.230, 61118, None)
+24/11/03 22:34:44 INFO MemoryStore: Block broadcast_0 stored as values in memory (estimated size 221.5 KiB, free 434.2 MiB)
+24/11/03 22:34:44 INFO MemoryStore: Block broadcast_0_piece0 stored as bytes in memory (estimated size 32.6 KiB, free 434.2 MiB)
+24/11/03 22:34:44 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on 10.0.0.230:61118 (size: 32.6 KiB, free: 434.4 MiB)
+24/11/03 22:34:44 INFO SparkContext: Created broadcast 0 from textFile at SparkTrain.scala:46
+24/11/03 22:34:45 INFO SparkTrain: Generating sliding windows --------------------DATASET-------------------------
+24/11/03 22:34:45 INFO FileInputFormat: Total input files to process : 1
+24/11/03 22:34:45 INFO SparkContext: Starting job: count at SparkTrain.scala:64
+24/11/03 22:34:45 INFO DAGScheduler: Got job 0 (count at SparkTrain.scala:64) with 2 output partitions
+24/11/03 22:34:45 INFO DAGScheduler: Final stage: ResultStage 0 (count at SparkTrain.scala:64)
+24/11/03 22:34:45 INFO DAGScheduler: Parents of final stage: List()
+24/11/03 22:34:45 INFO DAGScheduler: Missing parents: List()
+24/11/03 22:34:45 INFO DAGScheduler: Submitting ResultStage 0 (MapPartitionsRDD[3] at flatMap at SparkTrain.scala:63), which has no missing parents
+24/11/03 22:34:45 INFO MemoryStore: Block broadcast_1 stored as values in memory (estimated size 5.7 KiB, free 434.1 MiB)
+24/11/03 22:34:45 INFO MemoryStore: Block broadcast_1_piece0 stored as bytes in memory (estimated size 3.2 KiB, free 434.1 MiB)
+24/11/03 22:34:45 INFO BlockManagerInfo: Added broadcast_1_piece0 in memory on 10.0.0.230:61118 (size: 3.2 KiB, free: 434.4 MiB)
+24/11/03 22:34:45 INFO SparkContext: Created broadcast 1 from broadcast at DAGScheduler.scala:1585
+24/11/03 22:34:45 INFO DAGScheduler: Submitting 2 missing tasks from ResultStage 0 (MapPartitionsRDD[3] at flatMap at SparkTrain.scala:63) (first 15 tasks are for partitions Vector(0, 1))
+24/11/03 22:34:45 INFO TaskSchedulerImpl: Adding task set 0.0 with 2 tasks resource profile 0
+24/11/03 22:34:45 INFO TaskSetManager: Starting task 0.0 in stage 0.0 (TID 0) (10.0.0.230, executor driver, partition 0, PROCESS_LOCAL, 9280 bytes)
+24/11/03 22:34:45 INFO TaskSetManager: Starting task 1.0 in stage 0.0 (TID 1) (10.0.0.230, executor driver, partition 1, PROCESS_LOCAL, 9280 bytes)
+24/11/03 22:34:45 INFO Executor: Running task 1.0 in stage 0.0 (TID 1)
+24/11/03 22:34:45 INFO Executor: Running task 0.0 in stage 0.0 (TID 0)
+24/11/03 22:34:45 INFO HadoopRDD: Input split: file:/C:/441 Cloud/Project/Cloud LLM/src/main/resources/input/pg1.txt:403+404
+24/11/03 22:34:45 INFO HadoopRDD: Input split: file:/C:/441 Cloud/Project/Cloud LLM/src/main/resources/input/pg1.txt:0+403
+24/11/03 22:34:45 INFO LineRecordReader: Found UTF-8 BOM and skipped it
+24/11/03 22:34:48 INFO Executor: Finished task 0.0 in stage 0.0 (TID 0). 1016 bytes result sent to driver
+24/11/03 22:34:48 INFO TaskSetManager: Finished task 0.0 in stage 0.0 (TID 0) in 2782 ms on 10.0.0.230 (executor driver) (1/2)
+24/11/03 22:34:49 INFO Executor: Finished task 1.0 in stage 0.0 (TID 1). 1016 bytes result sent to driver
+24/11/03 22:34:49 INFO TaskSetManager: Finished task 1.0 in stage 0.0 (TID 1) in 4342 ms on 10.0.0.230 (executor driver) (2/2)
+24/11/03 22:34:49 INFO TaskSchedulerImpl: Removed TaskSet 0.0, whose tasks have all completed, from pool
+24/11/03 22:34:49 INFO DAGScheduler: ResultStage 0 (count at SparkTrain.scala:64) finished in 4.461 s
+24/11/03 22:34:49 INFO DAGScheduler: Job 0 is finished. Cancelling potential speculative or zombie tasks for this job
+24/11/03 22:34:49 INFO TaskSchedulerImpl: Killing all running tasks in stage 0: Stage finished
+24/11/03 22:34:49 INFO DAGScheduler: Job 0 finished: count at SparkTrain.scala:64, took 4.500489 s
+24/11/03 22:34:49 INFO SparkTrain: DATASET:111
+24/11/03 22:34:49 INFO SparkContext: Starting job: collect at SparkTrain.scala:68
+24/11/03 22:34:49 INFO DAGScheduler: Got job 1 (collect at SparkTrain.scala:68) with 2 output partitions
+24/11/03 22:34:49 INFO DAGScheduler: Final stage: ResultStage 1 (collect at SparkTrain.scala:68)
+24/11/03 22:34:49 INFO DAGScheduler: Parents of final stage: List()
+24/11/03 22:34:49 INFO DAGScheduler: Missing parents: List()
+24/11/03 22:34:49 INFO DAGScheduler: Submitting ResultStage 1 (MapPartitionsRDD[3] at flatMap at SparkTrain.scala:63), which has no missing parents
+24/11/03 22:34:49 INFO MemoryStore: Block broadcast_2 stored as values in memory (estimated size 5.8 KiB, free 434.1 MiB)
+24/11/03 22:34:49 INFO MemoryStore: Block broadcast_2_piece0 stored as bytes in memory (estimated size 3.2 KiB, free 434.1 MiB)
+24/11/03 22:34:49 INFO BlockManagerInfo: Added broadcast_2_piece0 in memory on 10.0.0.230:61118 (size: 3.2 KiB, free: 434.4 MiB)
+24/11/03 22:34:49 INFO SparkContext: Created broadcast 2 from broadcast at DAGScheduler.scala:1585
+24/11/03 22:34:49 INFO DAGScheduler: Submitting 2 missing tasks from ResultStage 1 (MapPartitionsRDD[3] at flatMap at SparkTrain.scala:63) (first 15 tasks are for partitions Vector(0, 1))
+24/11/03 22:34:49 INFO TaskSchedulerImpl: Adding task set 1.0 with 2 tasks resource profile 0
+24/11/03 22:34:49 INFO TaskSetManager: Starting task 0.0 in stage 1.0 (TID 2) (10.0.0.230, executor driver, partition 0, PROCESS_LOCAL, 9280 bytes)
+24/11/03 22:34:49 INFO TaskSetManager: Starting task 1.0 in stage 1.0 (TID 3) (10.0.0.230, executor driver, partition 1, PROCESS_LOCAL, 9280 bytes)
+24/11/03 22:34:49 INFO Executor: Running task 1.0 in stage 1.0 (TID 3)
+24/11/03 22:34:49 INFO Executor: Running task 0.0 in stage 1.0 (TID 2)
+24/11/03 22:34:49 INFO HadoopRDD: Input split: file:/C:/441 Cloud/Project/Cloud LLM/src/main/resources/input/pg1.txt:0+403
+24/11/03 22:34:49 INFO HadoopRDD: Input split: file:/C:/441 Cloud/Project/Cloud LLM/src/main/resources/input/pg1.txt:403+404
+24/11/03 22:34:49 INFO LineRecordReader: Found UTF-8 BOM and skipped it
+24/11/03 22:34:49 INFO BlockManagerInfo: Removed broadcast_1_piece0 on 10.0.0.230:61118 in memory (size: 3.2 KiB, free: 434.4 MiB)
+24/11/03 22:34:51 INFO Executor: Finished task 0.0 in stage 1.0 (TID 2). 3270 bytes result sent to driver
+24/11/03 22:34:51 INFO TaskSetManager: Finished task 0.0 in stage 1.0 (TID 2) in 2301 ms on 10.0.0.230 (executor driver) (1/2)
+24/11/03 22:34:53 INFO Executor: Finished task 1.0 in stage 1.0 (TID 3). 2725 bytes result sent to driver
+24/11/03 22:34:53 INFO TaskSetManager: Finished task 1.0 in stage 1.0 (TID 3) in 3397 ms on 10.0.0.230 (executor driver) (2/2)
+24/11/03 22:34:53 INFO TaskSchedulerImpl: Removed TaskSet 1.0, whose tasks have all completed, from pool
+24/11/03 22:34:53 INFO DAGScheduler: ResultStage 1 (collect at SparkTrain.scala:68) finished in 3.419 s
+24/11/03 22:34:53 INFO DAGScheduler: Job 1 is finished. Cancelling potential speculative or zombie tasks for this job
+24/11/03 22:34:53 INFO TaskSchedulerImpl: Killing all running tasks in stage 1: Stage finished
+24/11/03 22:34:53 INFO DAGScheduler: Job 1 finished: collect at SparkTrain.scala:68, took 3.428957 s
+24/11/03 22:34:53 INFO SparkTrain: Contents of slidingWindowDataset:
+24/11/03 22:34:53 INFO SparkTrain: Input: 39, 67391, 34360, 1395, Target: 72349
+24/11/03 22:34:53 INFO SparkTrain: Input: 67391, 34360, 1395, 72349, Target: 269
+24/11/03 22:34:53 INFO SparkTrain: Input: 34360, 1395, 72349, 269, Target: 2727
+24/11/03 22:34:53 INFO SparkTrain: Input: 1395, 72349, 269, 2727, Target: 40412
+24/11/03 22:34:53 INFO SparkTrain: Input: 72349, 269, 2727, 40412, Target: 8248
+24/11/03 22:34:53 INFO SparkTrain: Input: 269, 2727, 40412, 8248, Target: 4919
+24/11/03 22:34:53 INFO SparkTrain: Input: 2727, 40412, 8248, 4919, Target: 1395
+24/11/03 22:34:53 INFO SparkTrain: Input: 40412, 8248, 4919, 1395, Target: 6228
+24/11/03 22:34:53 INFO SparkTrain: Input: 8248, 4919, 1395, 6228, Target: 269
+24/11/03 22:34:53 INFO SparkTrain: Input: 4919, 1395, 6228, 269, Target: 59295
+24/11/03 22:34:53 INFO SparkTrain: Input: 34124, 4752, 64750, 58174, Target: 9210
+24/11/03 22:34:53 INFO SparkTrain: Input: 4752, 64750, 58174, 9210, Target: 7072
+24/11/03 22:34:53 INFO SparkTrain: Input: 64750, 58174, 9210, 7072, Target: 49818
+24/11/03 22:34:53 INFO SparkTrain: Input: 58174, 9210, 7072, 49818, Target: 4215
+24/11/03 22:34:53 INFO SparkTrain: Input: 9210, 7072, 49818, 4215, Target: 788
+24/11/03 22:34:53 INFO SparkTrain: Input: 2822, 606, 4919, 5455, Target: 278
+24/11/03 22:34:53 INFO SparkTrain: Input: 606, 4919, 5455, 278, Target: 71
+24/11/03 22:34:53 INFO SparkTrain: Input: 4919, 5455, 278, 71, Target: 67391
+24/11/03 22:34:53 INFO SparkTrain: Input: 5455, 278, 71, 67391, Target: 26
+24/11/03 22:34:53 INFO SparkTrain: Input: 278, 71, 67391, 26, Target: 275
+24/11/03 22:34:53 INFO SparkTrain: Input: 71, 67391, 26, 275, Target: 596
+24/11/03 22:34:53 INFO SparkTrain: Input: 67391, 26, 275, 596, Target: 34431
+24/11/03 22:34:53 INFO SparkTrain: Input: 26, 275, 596, 34431, Target: 9210
+24/11/03 22:34:53 INFO SparkTrain: Input: 275, 596, 34431, 9210, Target: 267
+24/11/03 22:34:53 INFO SparkTrain: Input: 596, 34431, 9210, 267, Target: 954
+24/11/03 22:34:53 INFO SparkTrain: Input: 34431, 9210, 267, 954, Target: 56950
+24/11/03 22:34:53 INFO SparkTrain: Input: 13461, 64, 23796, 533, Target: 1073
+24/11/03 22:34:53 INFO SparkTrain: Input: 64, 23796, 533, 1073, Target: 15674
+24/11/03 22:34:53 INFO SparkTrain: Input: 23796, 533, 1073, 15674, Target: 2136
+24/11/03 22:34:53 INFO SparkTrain: Input: 533, 1073, 15674, 2136, Target: 269
+24/11/03 22:34:53 INFO SparkTrain: Input: 1073, 15674, 2136, 269, Target: 8823
+24/11/03 22:34:53 INFO SparkTrain: Input: 15674, 2136, 269, 8823, Target: 4919
+24/11/03 22:34:53 INFO SparkTrain: Input: 2136, 269, 8823, 4919, Target: 7072
+24/11/03 22:34:53 INFO SparkTrain: Input: 269, 8823, 4919, 7072, Target: 276
+24/11/03 22:34:53 INFO SparkTrain: Input: 8823, 4919, 7072, 276, Target: 55977
+24/11/03 22:34:53 INFO SparkTrain: Input: 4919, 7072, 276, 55977, Target: 57621
+24/11/03 22:34:53 INFO SparkTrain: Input: 791, 8006, 38, 45533, Target: 68
+24/11/03 22:34:53 INFO SparkTrain: Input: 8006, 38, 45533, 68, Target: 7280
+24/11/03 22:34:53 INFO SparkTrain: Input: 38, 45533, 68, 7280, Target: 1073
+24/11/03 22:34:53 INFO SparkTrain: Input: 45533, 68, 7280, 1073, Target: 791
+24/11/03 22:34:53 INFO SparkTrain: Input: 68, 7280, 1073, 791, Target: 25499
+24/11/03 22:34:53 INFO SparkTrain: Input: 7280, 1073, 791, 25499, Target: 1073
+24/11/03 22:34:53 INFO SparkTrain: Input: 1073, 791, 25499, 1073, Target: 64499
+24/11/03 22:34:53 INFO SparkTrain: Input: 791, 25499, 1073, 64499, Target: 768
+24/11/03 22:34:53 INFO SparkTrain: Input: 25499, 1073, 64499, 768, Target: 1073
+24/11/03 22:34:53 INFO SparkTrain: Input: 1073, 64499, 768, 1073, Target: 1820
+24/11/03 22:34:53 INFO SparkTrain: Input: 64499, 768, 1073, 1820, Target: 23175
+24/11/03 22:34:53 INFO SparkTrain: Input: 768, 1073, 1820, 23175, Target: 24137
+24/11/03 22:34:53 INFO SparkTrain: Input: 1073, 1820, 23175, 24137, Target: 1073
+24/11/03 22:34:53 INFO SparkTrain: Input: 1820, 23175, 24137, 1073, Target: 32132
+24/11/03 22:34:53 INFO SparkTrain: Input: 2028, 68, 2239, 285, Target: 2000
+24/11/03 22:34:53 INFO SparkTrain: Input: 68, 2239, 285, 2000, Target: 1820
+24/11/03 22:34:53 INFO SparkTrain: Input: 2239, 285, 2000, 1820, Target: 817
+24/11/03 22:34:53 INFO SparkTrain: Input: 285, 2000, 1820, 817, Target: 1073
+24/11/03 22:34:53 INFO SparkTrain: Input: 2000, 1820, 817, 1073, Target: 3852
+24/11/03 22:34:53 INFO SparkTrain: Input: 1820, 817, 1073, 3852, Target: 606
+24/11/03 22:34:53 INFO SparkTrain: Input: 817, 1073, 3852, 606, Target: 3852
+24/11/03 22:34:53 INFO SparkTrain: Input: 1073, 3852, 606, 3852, Target: 2940
+24/11/03 22:34:53 INFO SparkTrain: Input: 3852, 606, 3852, 2940, Target: 258
+24/11/03 22:34:53 INFO SparkTrain: Input: 606, 3852, 2940, 258, Target: 1820
+24/11/03 22:34:53 INFO SparkTrain: Input: 3852, 2940, 258, 1820, Target: 23175
+24/11/03 22:34:53 INFO SparkTrain: Input: 2940, 258, 1820, 23175, Target: 24137
+24/11/03 22:34:53 INFO SparkTrain: Input: 258, 1820, 23175, 24137, Target: 438
+24/11/03 22:34:53 INFO SparkTrain: Input: 3646, 1605, 18753, 1073, Target: 1820
+24/11/03 22:34:53 INFO SparkTrain: Input: 1605, 18753, 1073, 1820, Target: 14957
+24/11/03 22:34:53 INFO SparkTrain: Input: 18753, 1073, 1820, 14957, Target: 266
+24/11/03 22:34:53 INFO SparkTrain: Input: 1073, 1820, 14957, 266, Target: 2201
+24/11/03 22:34:53 INFO SparkTrain: Input: 1820, 14957, 266, 2201, Target: 16845
+24/11/03 22:34:53 INFO SparkTrain: Input: 14957, 266, 2201, 16845, Target: 438
+24/11/03 22:34:53 INFO SparkTrain: Input: 266, 2201, 16845, 438, Target: 4291
+24/11/03 22:34:53 INFO SparkTrain: Input: 2201, 16845, 438, 4291, Target: 60301
+24/11/03 22:34:53 INFO SparkTrain: Input: 16845, 438, 4291, 60301, Target: 2201
+24/11/03 22:34:53 INFO SparkTrain: Input: 438, 4291, 60301, 2201, Target: 28998
+24/11/03 22:34:53 INFO SparkTrain: Input: 4291, 60301, 2201, 28998, Target: 919
+24/11/03 22:34:53 INFO SparkTrain: Input: 2675, 18864, 8728, 275, Target: 11
+24/11/03 22:34:53 INFO SparkTrain: Input: 18864, 8728, 275, 11, Target: 47530
+24/11/03 22:34:53 INFO SparkTrain: Input: 8728, 275, 11, 47530, Target: 275
+24/11/03 22:34:53 INFO SparkTrain: Input: 275, 11, 47530, 275, Target: 14075
+24/11/03 22:34:53 INFO SparkTrain: Input: 11, 47530, 275, 14075, Target: 269
+24/11/03 22:34:53 INFO SparkTrain: Input: 47530, 275, 14075, 269, Target: 265
+24/11/03 22:34:53 INFO SparkTrain: Input: 275, 14075, 269, 265, Target: 25700
+24/11/03 22:34:53 INFO SparkTrain: Input: 14075, 269, 265, 25700, Target: 275
+24/11/03 22:34:53 INFO SparkTrain: Input: 269, 265, 25700, 275, Target: 8154
+24/11/03 22:34:53 INFO SparkTrain: Input: 265, 25700, 275, 8154, Target: 1820
+24/11/03 22:34:53 INFO SparkTrain: Input: 25700, 275, 8154, 1820, Target: 18853
+24/11/03 22:34:53 INFO SparkTrain: Input: 1073, 1820, 8006, 38, Target: 45533
+24/11/03 22:34:53 INFO SparkTrain: Input: 1820, 8006, 38, 45533, Target: 10028
+24/11/03 22:34:53 INFO SparkTrain: Input: 8006, 38, 45533, 10028, Target: 83722
+24/11/03 22:34:53 INFO SparkTrain: Input: 38, 45533, 10028, 83722, Target: 4291
+24/11/03 22:34:53 INFO SparkTrain: Input: 45533, 10028, 83722, 4291, Target: 576
+24/11/03 22:34:53 INFO SparkTrain: Input: 10028, 83722, 4291, 576, Target: 68
+24/11/03 22:34:53 INFO SparkTrain: Input: 83722, 4291, 576, 68, Target: 2239
+24/11/03 22:34:53 INFO SparkTrain: Input: 4291, 576, 68, 2239, Target: 269
+24/11/03 22:34:53 INFO SparkTrain: Input: 576, 68, 2239, 269, Target: 26732
+24/11/03 22:34:53 INFO SparkTrain: Input: 2746, 9514, 548, 1962, Target: 40563
+24/11/03 22:34:53 INFO SparkTrain: Input: 9514, 548, 1962, 40563, Target: 258
+24/11/03 22:34:53 INFO SparkTrain: Input: 548, 1962, 40563, 258, Target: 1820
+24/11/03 22:34:53 INFO SparkTrain: Input: 1962, 40563, 258, 1820, Target: 23175
+24/11/03 22:34:53 INFO SparkTrain: Input: 40563, 258, 1820, 23175, Target: 24137
+24/11/03 22:34:53 INFO SparkTrain: Input: 258, 1820, 23175, 24137, Target: 11
+24/11/03 22:34:53 INFO SparkTrain: Input: 9514, 14724, 19553, 998, Target: 2071
+24/11/03 22:34:53 INFO SparkTrain: Input: 14724, 19553, 998, 2071, Target: 1820
+24/11/03 22:34:53 INFO SparkTrain: Input: 19553, 998, 2071, 1820, Target: 68637
+24/11/03 22:34:53 INFO SparkTrain: Input: 998, 2071, 1820, 68637, Target: 1073
+24/11/03 22:34:53 INFO SparkTrain: Input: 2071, 1820, 68637, 1073, Target: 1820
+24/11/03 22:34:53 INFO SparkTrain: Input: 1820, 68637, 1073, 1820, Target: 11389
+24/11/03 22:34:53 INFO SparkTrain: Input: 68637, 1073, 1820, 11389, Target: 2940
+24/11/03 22:34:53 INFO SparkTrain: Input: 1073, 1820, 11389, 2940, Target: 9514
+24/11/03 22:34:53 INFO SparkTrain: Input: 1820, 11389, 2940, 9514, Target: 548
+24/11/03 22:34:53 INFO SparkTrain: Input: 11389, 2940, 9514, 548, Target: 40563
+24/11/03 22:34:53 INFO SparkTrain: Input: 15145, 985, 576, 68, Target: 7280
+24/11/03 22:34:53 INFO SparkTrain: Fetching embeddings.........
+24/11/03 22:34:53 INFO FetchEmbd: Fetching Embeddings from: C:/441 Cloud/Project/Cloud LLM/src/main/resources/output/embeddings.csv/embeddings.csv
+24/11/03 22:34:53 INFO SparkTrain: Fetched embeddings of shape: [ 4701, 100
+24/11/03 22:34:53 INFO SparkTrain: Generating sliding windows of embeddings for training
+24/11/03 22:34:53 INFO BlockManagerInfo: Removed broadcast_2_piece0 on 10.0.0.230:61118 in memory (size: 3.2 KiB, free: 434.4 MiB)
+24/11/03 22:34:53 INFO SparkTrain: Creating model...........
+24/11/03 22:34:53 INFO Nd4jBackend: Loaded [CpuBackend] backend
+Warning: Version of org.bytedeco:openblas could not be found.
+24/11/03 22:34:54 INFO NativeOpsHolder: Number of threads used for linear algebra: 6
+24/11/03 22:34:54 INFO CpuNDArrayFactory: Binary level Generic x86 optimization level AVX512
+24/11/03 22:34:54 INFO Nd4jBlas: Number of threads used for OpenMP BLAS: 6
+24/11/03 22:34:54 INFO DefaultOpExecutioner: Backend used: [CPU]; OS: [Windows 11]
+24/11/03 22:34:54 INFO DefaultOpExecutioner: Cores: [12]; Memory: [1.0GB];
+24/11/03 22:34:54 INFO DefaultOpExecutioner: Blas vendor: [OPENBLAS]
+24/11/03 22:34:54 INFO CpuBackend: Backend build information:
+ GCC: "12.1.0"
+STD version: 201103L
+DEFAULT_ENGINE: samediff::ENGINE_CPU
+HAVE_FLATBUFFERS
+HAVE_OPENBLAS
+24/11/03 22:34:54 INFO SparkTrain: Configuring training Master
+24/11/03 22:34:54 INFO MultiLayerNetwork: Starting MultiLayerNetwork with WorkspaceModes set to [training: ENABLED; inference: ENABLED], cacheMode set to [NONE]
+24/11/03 22:34:54 INFO SparkTrain: Training the LLM....
+Starting epoch 1
+24/11/03 22:34:54 INFO SharedTrainingMaster: Setting controller address to 127.0.0.1:49876
+24/11/03 22:34:54 INFO ModelParameterServer: ModelParameterServer starting
+24/11/03 22:34:54 INFO BaseTrainingMaster: Initiating RDD<DataSet> export at /tmp/hadoop-yashu/dl4j/1730694894652_3346170e/4/
+24/11/03 22:34:55 INFO deprecation: mapred.output.dir is deprecated. Instead, use mapreduce.output.fileoutputformat.outputdir
+24/11/03 22:34:55 INFO HadoopMapRedCommitProtocol: Using output committer class org.apache.hadoop.mapred.FileOutputCommitter
+24/11/03 22:34:55 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+24/11/03 22:34:55 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+24/11/03 22:34:55 INFO SparkContext: Starting job: runJob at SparkHadoopWriter.scala:83
+24/11/03 22:34:55 INFO DAGScheduler: Got job 2 (runJob at SparkHadoopWriter.scala:83) with 2 output partitions
+24/11/03 22:34:55 INFO DAGScheduler: Final stage: ResultStage 2 (runJob at SparkHadoopWriter.scala:83)
+24/11/03 22:34:55 INFO DAGScheduler: Parents of final stage: List()
+24/11/03 22:34:55 INFO DAGScheduler: Missing parents: List()
+24/11/03 22:34:55 INFO DAGScheduler: Submitting ResultStage 2 (MapPartitionsRDD[6] at saveAsTextFile at BaseTrainingMaster.java:210), which has no missing parents
+24/11/03 22:34:55 WARN DAGScheduler: Broadcasting large task binary with size 3.8 MiB
+24/11/03 22:34:55 INFO MemoryStore: Block broadcast_3 stored as values in memory (estimated size 3.8 MiB, free 430.4 MiB)
+24/11/03 22:34:55 INFO MemoryStore: Block broadcast_3_piece0 stored as bytes in memory (estimated size 2.8 MiB, free 427.5 MiB)
+24/11/03 22:34:55 INFO BlockManagerInfo: Added broadcast_3_piece0 in memory on 10.0.0.230:61118 (size: 2.8 MiB, free: 431.5 MiB)
+24/11/03 22:34:55 INFO SparkContext: Created broadcast 3 from broadcast at DAGScheduler.scala:1585
+24/11/03 22:34:55 INFO DAGScheduler: Submitting 2 missing tasks from ResultStage 2 (MapPartitionsRDD[6] at saveAsTextFile at BaseTrainingMaster.java:210) (first 15 tasks are for partitions Vector(0, 1))
+24/11/03 22:34:55 INFO TaskSchedulerImpl: Adding task set 2.0 with 2 tasks resource profile 0
+24/11/03 22:34:55 INFO TaskSetManager: Starting task 0.0 in stage 2.0 (TID 4) (10.0.0.230, executor driver, partition 0, PROCESS_LOCAL, 9280 bytes)
+24/11/03 22:34:55 INFO TaskSetManager: Starting task 1.0 in stage 2.0 (TID 5) (10.0.0.230, executor driver, partition 1, PROCESS_LOCAL, 9280 bytes)
+24/11/03 22:34:55 INFO Executor: Running task 1.0 in stage 2.0 (TID 5)
+24/11/03 22:34:55 INFO Executor: Running task 0.0 in stage 2.0 (TID 4)
+24/11/03 22:34:55 INFO HadoopRDD: Input split: file:/C:/441 Cloud/Project/Cloud LLM/src/main/resources/input/pg1.txt:0+403
+24/11/03 22:34:55 INFO HadoopRDD: Input split: file:/C:/441 Cloud/Project/Cloud LLM/src/main/resources/input/pg1.txt:403+404
+24/11/03 22:34:55 INFO LineRecordReader: Found UTF-8 BOM and skipped it
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+24/11/03 22:34:57 INFO HadoopMapRedCommitProtocol: Using output committer class org.apache.hadoop.mapred.FileOutputCommitter
+24/11/03 22:34:57 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+24/11/03 22:34:57 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+24/11/03 22:34:57 INFO FileOutputCommitter: Saved output of task 'attempt_202411032234556307053616578211341_0006_m_000000_0' to file:/tmp/hadoop-yashu/dl4j/1730694894652_3346170e/4/paths/_temporary/0/task_202411032234556307053616578211341_0006_m_000000
+24/11/03 22:34:57 INFO SparkHadoopMapRedUtil: attempt_202411032234556307053616578211341_0006_m_000000_0: Committed. Elapsed time: 6 ms.
+24/11/03 22:34:57 INFO Executor: Finished task 0.0 in stage 2.0 (TID 4). 1299 bytes result sent to driver
+24/11/03 22:34:57 INFO TaskSetManager: Finished task 0.0 in stage 2.0 (TID 4) in 2801 ms on 10.0.0.230 (executor driver) (1/2)
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+
+WINDOW vs embedding-------------------------
+
+endddddddddddd-----------------------------
+24/11/03 22:34:58 INFO HadoopMapRedCommitProtocol: Using output committer class org.apache.hadoop.mapred.FileOutputCommitter
+24/11/03 22:34:58 INFO FileOutputCommitter: File Output Committer Algorithm version is 1
+24/11/03 22:34:58 INFO FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+24/11/03 22:34:58 INFO FileOutputCommitter: Saved output of task 'attempt_202411032234556307053616578211341_0006_m_000001_0' to file:/tmp/hadoop-yashu/dl4j/1730694894652_3346170e/4/paths/_temporary/0/task_202411032234556307053616578211341_0006_m_000001
+24/11/03 22:34:58 INFO SparkHadoopMapRedUtil: attempt_202411032234556307053616578211341_0006_m_000001_0: Committed. Elapsed time: 1 ms.
+24/11/03 22:34:58 INFO Executor: Finished task 1.0 in stage 2.0 (TID 5). 1299 bytes result sent to driver
+24/11/03 22:34:58 INFO TaskSetManager: Finished task 1.0 in stage 2.0 (TID 5) in 3815 ms on 10.0.0.230 (executor driver) (2/2)
+24/11/03 22:34:58 INFO TaskSchedulerImpl: Removed TaskSet 2.0, whose tasks have all completed, from pool
+24/11/03 22:34:58 INFO DAGScheduler: ResultStage 2 (runJob at SparkHadoopWriter.scala:83) finished in 3.888 s
+24/11/03 22:34:58 INFO DAGScheduler: Job 2 is finished. Cancelling potential speculative or zombie tasks for this job
+24/11/03 22:34:58 INFO TaskSchedulerImpl: Killing all running tasks in stage 2: Stage finished
+24/11/03 22:34:58 INFO DAGScheduler: Job 2 finished: runJob at SparkHadoopWriter.scala:83, took 3.897643 s
+24/11/03 22:34:58 INFO SparkHadoopWriter: Start to commit write Job job_202411032234556307053616578211341_0006.
+24/11/03 22:34:58 INFO SparkHadoopWriter: Write Job job_202411032234556307053616578211341_0006 committed. Elapsed time: 16 ms.
+24/11/03 22:34:58 INFO BaseTrainingMaster: RDD<DataSet> export complete at /tmp/hadoop-yashu/dl4j/1730694894652_3346170e/4/
+24/11/03 22:34:58 INFO MemoryStore: Block broadcast_4 stored as values in memory (estimated size 221.5 KiB, free 427.3 MiB)
+24/11/03 22:34:58 INFO MemoryStore: Block broadcast_4_piece0 stored as bytes in memory (estimated size 32.6 KiB, free 427.3 MiB)
+24/11/03 22:34:58 INFO BlockManagerInfo: Added broadcast_4_piece0 in memory on 10.0.0.230:61118 (size: 32.6 KiB, free: 431.5 MiB)
+24/11/03 22:34:58 INFO SparkContext: Created broadcast 4 from textFile at BaseTrainingMaster.java:165
+24/11/03 22:34:59 WARN NativeIO: NativeIO.getStat error (3): The system cannot find the path specified.
+ -- file path: tmp/hadoop-yashu/dl4j/1730694894652_3346170e/4/paths/part-00000
+24/11/03 22:34:59 WARN NativeIO: NativeIO.getStat error (3): The system cannot find the path specified.
+ -- file path: tmp/hadoop-yashu/dl4j/1730694894652_3346170e/4/paths/part-00001
+24/11/03 22:34:59 WARN NativeIO: NativeIO.getStat error (3): The system cannot find the path specified.
+ -- file path: tmp/hadoop-yashu/dl4j/1730694894652_3346170e/4/paths/_SUCCESS
+24/11/03 22:34:59 INFO FileInputFormat: Total input files to process : 2
+24/11/03 22:34:59 INFO SparkContext: Starting job: count at SharedTrainingMaster.java:326
+24/11/03 22:34:59 INFO DAGScheduler: Got job 3 (count at SharedTrainingMaster.java:326) with 3 output partitions
+24/11/03 22:34:59 INFO DAGScheduler: Final stage: ResultStage 3 (count at SharedTrainingMaster.java:326)
+24/11/03 22:34:59 INFO DAGScheduler: Parents of final stage: List()
+24/11/03 22:34:59 INFO DAGScheduler: Missing parents: List()
+24/11/03 22:34:59 INFO DAGScheduler: Submitting ResultStage 3 (/tmp/hadoop-yashu/dl4j/1730694894652_3346170e/4/paths/ MapPartitionsRDD[8] at textFile at BaseTrainingMaster.java:165), which has no missing parents
+24/11/03 22:34:59 INFO MemoryStore: Block broadcast_5 stored as values in memory (estimated size 4.9 KiB, free 427.3 MiB)
+24/11/03 22:34:59 INFO MemoryStore: Block broadcast_5_piece0 stored as bytes in memory (estimated size 2.8 KiB, free 427.3 MiB)
+24/11/03 22:34:59 INFO BlockManagerInfo: Added broadcast_5_piece0 in memory on 10.0.0.230:61118 (size: 2.8 KiB, free: 431.5 MiB)
+24/11/03 22:34:59 INFO SparkContext: Created broadcast 5 from broadcast at DAGScheduler.scala:1585
+24/11/03 22:34:59 INFO DAGScheduler: Submitting 3 missing tasks from ResultStage 3 (/tmp/hadoop-yashu/dl4j/1730694894652_3346170e/4/paths/ MapPartitionsRDD[8] at textFile at BaseTrainingMaster.java:165) (first 15 tasks are for partitions Vector(0, 1, 2))
+24/11/03 22:34:59 INFO TaskSchedulerImpl: Adding task set 3.0 with 3 tasks resource profile 0
+24/11/03 22:34:59 INFO TaskSetManager: Starting task 0.0 in stage 3.0 (TID 6) (10.0.0.230, executor driver, partition 0, PROCESS_LOCAL, 9280 bytes)
+24/11/03 22:34:59 INFO TaskSetManager: Starting task 1.0 in stage 3.0 (TID 7) (10.0.0.230, executor driver, partition 1, PROCESS_LOCAL, 9280 bytes)
+24/11/03 22:34:59 INFO Executor: Running task 0.0 in stage 3.0 (TID 6)
+24/11/03 22:34:59 INFO Executor: Running task 1.0 in stage 3.0 (TID 7)
+24/11/03 22:34:59 INFO HadoopRDD: Input split: file:/tmp/hadoop-yashu/dl4j/1730694894652_3346170e/4/paths/part-00000:0+539
+24/11/03 22:34:59 INFO HadoopRDD: Input split: file:/tmp/hadoop-yashu/dl4j/1730694894652_3346170e/4/paths/part-00000:539+77
+24/11/03 22:34:59 INFO MemoryStore: Block rdd_8_1 stored as values in memory (estimated size 16.0 B, free 427.3 MiB)
+24/11/03 22:34:59 INFO MemoryStore: Block rdd_8_0 stored as values in memory (estimated size 1008.0 B, free 427.3 MiB)
+24/11/03 22:34:59 INFO BlockManagerInfo: Added rdd_8_1 in memory on 10.0.0.230:61118 (size: 16.0 B, free: 431.5 MiB)
+24/11/03 22:34:59 INFO BlockManagerInfo: Added rdd_8_0 in memory on 10.0.0.230:61118 (size: 1008.0 B, free: 431.5 MiB)
+24/11/03 22:34:59 INFO Executor: Finished task 0.0 in stage 3.0 (TID 6). 930 bytes result sent to driver
+24/11/03 22:34:59 INFO Executor: Finished task 1.0 in stage 3.0 (TID 7). 844 bytes result sent to driver
+24/11/03 22:34:59 INFO TaskSetManager: Starting task 2.0 in stage 3.0 (TID 8) (10.0.0.230, executor driver, partition 2, PROCESS_LOCAL, 9280 bytes)
+24/11/03 22:34:59 INFO Executor: Running task 2.0 in stage 3.0 (TID 8)
+24/11/03 22:34:59 INFO TaskSetManager: Finished task 0.0 in stage 3.0 (TID 6) in 41 ms on 10.0.0.230 (executor driver) (1/3)
+24/11/03 22:34:59 INFO TaskSetManager: Finished task 1.0 in stage 3.0 (TID 7) in 43 ms on 10.0.0.230 (executor driver) (2/3)
+24/11/03 22:34:59 INFO HadoopRDD: Input split: file:/tmp/hadoop-yashu/dl4j/1730694894652_3346170e/4/paths/part-00001:0+462
+24/11/03 22:34:59 INFO MemoryStore: Block rdd_8_2 stored as values in memory (estimated size 760.0 B, free 427.3 MiB)
+24/11/03 22:34:59 INFO BlockManagerInfo: Added rdd_8_2 in memory on 10.0.0.230:61118 (size: 760.0 B, free: 431.5 MiB)
+24/11/03 22:34:59 INFO Executor: Finished task 2.0 in stage 3.0 (TID 8). 887 bytes result sent to driver
+24/11/03 22:34:59 INFO TaskSetManager: Finished task 2.0 in stage 3.0 (TID 8) in 28 ms on 10.0.0.230 (executor driver) (3/3)
+24/11/03 22:34:59 INFO TaskSchedulerImpl: Removed TaskSet 3.0, whose tasks have all completed, from pool
+24/11/03 22:34:59 INFO DAGScheduler: ResultStage 3 (count at SharedTrainingMaster.java:326) finished in 0.079 s
+24/11/03 22:34:59 INFO DAGScheduler: Job 3 is finished. Cancelling potential speculative or zombie tasks for this job
+24/11/03 22:34:59 INFO TaskSchedulerImpl: Killing all running tasks in stage 3: Stage finished
+24/11/03 22:34:59 INFO DAGScheduler: Job 3 finished: count at SharedTrainingMaster.java:326, took 0.089016 s
+24/11/03 22:34:59 INFO SharedTrainingMaster: Starting training of split 1 of 1. workerMiniBatchSize=32, thresholdAlgorithm=AdaptiveThresholdAlgorithm(initialThreshold=1.0E-4,minTargetSparsity=1.0E-4,maxTargetSparsity=0.01,decayRate=0.9659363289248456), Configured for 2 workers
+24/11/03 22:34:59 INFO SharedTrainingMaster: Repartitioning training data using repartitioner: DefaultRepartitioner(maxPartitions=5000)
+24/11/03 22:34:59 INFO SparkContext: Starting job: collect at DefaultRepartitioner.java:59
+24/11/03 22:34:59 INFO DAGScheduler: Got job 4 (collect at DefaultRepartitioner.java:59) with 3 output partitions
+24/11/03 22:34:59 INFO DAGScheduler: Final stage: ResultStage 4 (collect at DefaultRepartitioner.java:59)
+24/11/03 22:34:59 INFO DAGScheduler: Parents of final stage: List()
+24/11/03 22:34:59 INFO DAGScheduler: Missing parents: List()
+24/11/03 22:34:59 INFO DAGScheduler: Submitting ResultStage 4 (MapPartitionsRDD[9] at mapPartitionsWithIndex at DefaultRepartitioner.java:59), which has no missing parents
+24/11/03 22:34:59 INFO MemoryStore: Block broadcast_6 stored as values in memory (estimated size 6.0 KiB, free 427.3 MiB)
+24/11/03 22:34:59 INFO MemoryStore: Block broadcast_6_piece0 stored as bytes in memory (estimated size 3.3 KiB, free 427.3 MiB)
+24/11/03 22:34:59 INFO BlockManagerInfo: Added broadcast_6_piece0 in memory on 10.0.0.230:61118 (size: 3.3 KiB, free: 431.5 MiB)
+24/11/03 22:34:59 INFO SparkContext: Created broadcast 6 from broadcast at DAGScheduler.scala:1585
+24/11/03 22:34:59 INFO DAGScheduler: Submitting 3 missing tasks from ResultStage 4 (MapPartitionsRDD[9] at mapPartitionsWithIndex at DefaultRepartitioner.java:59) (first 15 tasks are for partitions Vector(0, 1, 2))
+24/11/03 22:34:59 INFO TaskSchedulerImpl: Adding task set 4.0 with 3 tasks resource profile 0
+24/11/03 22:34:59 INFO TaskSetManager: Starting task 0.0 in stage 4.0 (TID 9) (10.0.0.230, executor driver, partition 0, PROCESS_LOCAL, 9280 bytes)
+24/11/03 22:34:59 INFO TaskSetManager: Starting task 1.0 in stage 4.0 (TID 10) (10.0.0.230, executor driver, partition 1, PROCESS_LOCAL, 9280 bytes)
+24/11/03 22:34:59 INFO Executor: Running task 1.0 in stage 4.0 (TID 10)
+24/11/03 22:34:59 INFO Executor: Running task 0.0 in stage 4.0 (TID 9)
+24/11/03 22:34:59 INFO BlockManager: Found block rdd_8_0 locally
+24/11/03 22:34:59 INFO BlockManager: Found block rdd_8_1 locally
+24/11/03 22:34:59 INFO Executor: Finished task 1.0 in stage 4.0 (TID 10). 958 bytes result sent to driver
+24/11/03 22:34:59 INFO Executor: Finished task 0.0 in stage 4.0 (TID 9). 1001 bytes result sent to driver
+24/11/03 22:34:59 INFO TaskSetManager: Starting task 2.0 in stage 4.0 (TID 11) (10.0.0.230, executor driver, partition 2, PROCESS_LOCAL, 9280 bytes)
+24/11/03 22:34:59 INFO TaskSetManager: Finished task 1.0 in stage 4.0 (TID 10) in 10 ms on 10.0.0.230 (executor driver) (1/3)
+24/11/03 22:34:59 INFO Executor: Running task 2.0 in stage 4.0 (TID 11)
+24/11/03 22:34:59 INFO TaskSetManager: Finished task 0.0 in stage 4.0 (TID 9) in 13 ms on 10.0.0.230 (executor driver) (2/3)
+24/11/03 22:34:59 INFO BlockManager: Found block rdd_8_2 locally
+24/11/03 22:34:59 INFO Executor: Finished task 2.0 in stage 4.0 (TID 11). 1001 bytes result sent to driver
+24/11/03 22:34:59 INFO TaskSetManager: Finished task 2.0 in stage 4.0 (TID 11) in 6 ms on 10.0.0.230 (executor driver) (3/3)
+24/11/03 22:34:59 INFO TaskSchedulerImpl: Removed TaskSet 4.0, whose tasks have all completed, from pool
+24/11/03 22:34:59 INFO DAGScheduler: ResultStage 4 (collect at DefaultRepartitioner.java:59) finished in 0.030 s
+24/11/03 22:34:59 INFO DAGScheduler: Job 4 is finished. Cancelling potential speculative or zombie tasks for this job
+24/11/03 22:34:59 INFO TaskSchedulerImpl: Killing all running tasks in stage 4: Stage finished
+24/11/03 22:34:59 INFO DAGScheduler: Job 4 finished: collect at DefaultRepartitioner.java:59, took 0.038187 s
+24/11/03 22:34:59 INFO SparkContext: Starting job: zipWithIndex at SparkUtils.java:415
+24/11/03 22:34:59 INFO DAGScheduler: Got job 5 (zipWithIndex at SparkUtils.java:415) with 2 output partitions
+24/11/03 22:34:59 INFO DAGScheduler: Final stage: ResultStage 5 (zipWithIndex at SparkUtils.java:415)
+24/11/03 22:34:59 INFO DAGScheduler: Parents of final stage: List()
+24/11/03 22:34:59 INFO DAGScheduler: Missing parents: List()
+24/11/03 22:34:59 INFO DAGScheduler: Submitting ResultStage 5 (/tmp/hadoop-yashu/dl4j/1730694894652_3346170e/4/paths/ MapPartitionsRDD[8] at textFile at BaseTrainingMaster.java:165), which has no missing parents
+24/11/03 22:34:59 INFO MemoryStore: Block broadcast_7 stored as values in memory (estimated size 5.0 KiB, free 427.3 MiB)
+24/11/03 22:34:59 INFO MemoryStore: Block broadcast_7_piece0 stored as bytes in memory (estimated size 2.9 KiB, free 427.3 MiB)
+24/11/03 22:34:59 INFO BlockManagerInfo: Added broadcast_7_piece0 in memory on 10.0.0.230:61118 (size: 2.9 KiB, free: 431.5 MiB)
+24/11/03 22:34:59 INFO SparkContext: Created broadcast 7 from broadcast at DAGScheduler.scala:1585
+24/11/03 22:34:59 INFO DAGScheduler: Submitting 2 missing tasks from ResultStage 5 (/tmp/hadoop-yashu/dl4j/1730694894652_3346170e/4/paths/ MapPartitionsRDD[8] at textFile at BaseTrainingMaster.java:165) (first 15 tasks are for partitions Vector(0, 1))
+24/11/03 22:34:59 INFO TaskSchedulerImpl: Adding task set 5.0 with 2 tasks resource profile 0
+24/11/03 22:34:59 INFO TaskSetManager: Starting task 0.0 in stage 5.0 (TID 12) (10.0.0.230, executor driver, partition 0, PROCESS_LOCAL, 9280 bytes)
+24/11/03 22:34:59 INFO TaskSetManager: Starting task 1.0 in stage 5.0 (TID 13) (10.0.0.230, executor driver, partition 1, PROCESS_LOCAL, 9280 bytes)
+24/11/03 22:34:59 INFO Executor: Running task 0.0 in stage 5.0 (TID 12)
+24/11/03 22:34:59 INFO Executor: Running task 1.0 in stage 5.0 (TID 13)
+24/11/03 22:34:59 INFO BlockManager: Found block rdd_8_1 locally
+24/11/03 22:34:59 INFO BlockManager: Found block rdd_8_0 locally
+24/11/03 22:34:59 INFO Executor: Finished task 1.0 in stage 5.0 (TID 13). 844 bytes result sent to driver
+24/11/03 22:34:59 INFO Executor: Finished task 0.0 in stage 5.0 (TID 12). 887 bytes result sent to driver
+24/11/03 22:34:59 INFO TaskSetManager: Finished task 0.0 in stage 5.0 (TID 12) in 10 ms on 10.0.0.230 (executor driver) (1/2)
+24/11/03 22:34:59 INFO TaskSetManager: Finished task 1.0 in stage 5.0 (TID 13) in 13 ms on 10.0.0.230 (executor driver) (2/2)
+24/11/03 22:34:59 INFO TaskSchedulerImpl: Removed TaskSet 5.0, whose tasks have all completed, from pool
+24/11/03 22:34:59 INFO DAGScheduler: ResultStage 5 (zipWithIndex at SparkUtils.java:415) finished in 0.022 s
+24/11/03 22:34:59 INFO DAGScheduler: Job 5 is finished. Cancelling potential speculative or zombie tasks for this job
+24/11/03 22:34:59 INFO TaskSchedulerImpl: Killing all running tasks in stage 5: Stage finished
+24/11/03 22:34:59 INFO DAGScheduler: Job 5 finished: zipWithIndex at SparkUtils.java:415, took 0.028307 s
+24/11/03 22:34:59 INFO MemoryStore: Block broadcast_8 stored as values in memory (estimated size 3.6 KiB, free 427.3 MiB)
+24/11/03 22:34:59 INFO MemoryStore: Block broadcast_8_piece0 stored as bytes in memory (estimated size 201.3 KiB, free 427.1 MiB)
+24/11/03 22:34:59 INFO BlockManagerInfo: Added broadcast_8_piece0 in memory on 10.0.0.230:61118 (size: 201.3 KiB, free: 431.3 MiB)
+24/11/03 22:34:59 INFO SparkContext: Created broadcast 8 from broadcast at SharedTrainingMaster.java:271
+24/11/03 22:34:59 INFO MemoryStore: Block broadcast_9 stored as values in memory (estimated size 912.0 B, free 427.1 MiB)
+24/11/03 22:34:59 INFO MemoryStore: Block broadcast_9_piece0 stored as bytes in memory (estimated size 1603.0 B, free 427.1 MiB)
+24/11/03 22:34:59 INFO BlockManagerInfo: Added broadcast_9_piece0 in memory on 10.0.0.230:61118 (size: 1603.0 B, free: 431.3 MiB)
+24/11/03 22:34:59 INFO SparkContext: Created broadcast 9 from broadcast at SharedTrainingMaster.java:274
+24/11/03 22:34:59 INFO MemoryStore: Block broadcast_10 stored as values in memory (estimated size 239.2 KiB, free 426.8 MiB)
+24/11/03 22:34:59 INFO MemoryStore: Block broadcast_10_piece0 stored as bytes in memory (estimated size 27.2 KiB, free 426.8 MiB)
+24/11/03 22:34:59 INFO BlockManagerInfo: Added broadcast_10_piece0 in memory on 10.0.0.230:61118 (size: 27.2 KiB, free: 431.3 MiB)
+24/11/03 22:34:59 INFO SparkContext: Created broadcast 10 from broadcast at BroadcastHadoopConfigHolder.java:42
+24/11/03 22:34:59 INFO SparkContext: Starting job: treeAggregate at SharedTrainingMaster.java:646
+24/11/03 22:34:59 INFO DAGScheduler: Registering RDD 11 (mapToPair at SparkUtils.java:415) as input to shuffle 2
+24/11/03 22:34:59 INFO DAGScheduler: Registering RDD 16 (treeAggregate at SharedTrainingMaster.java:646) as input to shuffle 1
+24/11/03 22:34:59 INFO DAGScheduler: Registering RDD 19 (treeAggregate at SharedTrainingMaster.java:646) as input to shuffle 0
+24/11/03 22:34:59 INFO DAGScheduler: Got job 6 (treeAggregate at SharedTrainingMaster.java:646) with 3 output partitions
+24/11/03 22:34:59 INFO DAGScheduler: Final stage: ResultStage 9 (treeAggregate at SharedTrainingMaster.java:646)
+24/11/03 22:34:59 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 8)
+24/11/03 22:34:59 INFO DAGScheduler: Missing parents: List(ShuffleMapStage 8)
+24/11/03 22:34:59 INFO DAGScheduler: Submitting ShuffleMapStage 6 (MapPartitionsRDD[11] at mapToPair at SparkUtils.java:415), which has no missing parents
+24/11/03 22:34:59 INFO MemoryStore: Block broadcast_11 stored as values in memory (estimated size 6.2 KiB, free 426.8 MiB)
+24/11/03 22:34:59 INFO MemoryStore: Block broadcast_11_piece0 stored as bytes in memory (estimated size 3.6 KiB, free 426.8 MiB)
+24/11/03 22:34:59 INFO BlockManagerInfo: Added broadcast_11_piece0 in memory on 10.0.0.230:61118 (size: 3.6 KiB, free: 431.3 MiB)
+24/11/03 22:34:59 INFO SparkContext: Created broadcast 11 from broadcast at DAGScheduler.scala:1585
+24/11/03 22:34:59 INFO DAGScheduler: Submitting 3 missing tasks from ShuffleMapStage 6 (MapPartitionsRDD[11] at mapToPair at SparkUtils.java:415) (first 15 tasks are for partitions Vector(0, 1, 2))
+24/11/03 22:34:59 INFO TaskSchedulerImpl: Adding task set 6.0 with 3 tasks resource profile 0
+24/11/03 22:34:59 INFO TaskSetManager: Starting task 0.0 in stage 6.0 (TID 14) (10.0.0.230, executor driver, partition 0, PROCESS_LOCAL, 9379 bytes)
+24/11/03 22:34:59 INFO TaskSetManager: Starting task 1.0 in stage 6.0 (TID 15) (10.0.0.230, executor driver, partition 1, PROCESS_LOCAL, 9379 bytes)
+24/11/03 22:34:59 INFO Executor: Running task 1.0 in stage 6.0 (TID 15)
+24/11/03 22:34:59 INFO Executor: Running task 0.0 in stage 6.0 (TID 14)
+24/11/03 22:34:59 INFO BlockManager: Found block rdd_8_1 locally
+24/11/03 22:34:59 INFO BlockManager: Found block rdd_8_0 locally
+24/11/03 22:34:59 INFO Executor: Finished task 1.0 in stage 6.0 (TID 15). 969 bytes result sent to driver
+24/11/03 22:34:59 INFO TaskSetManager: Starting task 2.0 in stage 6.0 (TID 16) (10.0.0.230, executor driver, partition 2, PROCESS_LOCAL, 9379 bytes)
+24/11/03 22:34:59 INFO Executor: Running task 2.0 in stage 6.0 (TID 16)
+24/11/03 22:34:59 INFO TaskSetManager: Finished task 1.0 in stage 6.0 (TID 15) in 34 ms on 10.0.0.230 (executor driver) (1/3)
+24/11/03 22:34:59 INFO BlockManager: Found block rdd_8_2 locally
+24/11/03 22:34:59 INFO Executor: Finished task 0.0 in stage 6.0 (TID 14). 1098 bytes result sent to driver
+24/11/03 22:34:59 INFO TaskSetManager: Finished task 0.0 in stage 6.0 (TID 14) in 69 ms on 10.0.0.230 (executor driver) (2/3)
+24/11/03 22:34:59 INFO Executor: Finished task 2.0 in stage 6.0 (TID 16). 1098 bytes result sent to driver
+24/11/03 22:34:59 INFO TaskSetManager: Finished task 2.0 in stage 6.0 (TID 16) in 33 ms on 10.0.0.230 (executor driver) (3/3)
+24/11/03 22:34:59 INFO TaskSchedulerImpl: Removed TaskSet 6.0, whose tasks have all completed, from pool
+24/11/03 22:34:59 INFO DAGScheduler: ShuffleMapStage 6 (mapToPair at SparkUtils.java:415) finished in 0.086 s
+24/11/03 22:34:59 INFO DAGScheduler: looking for newly runnable stages
+24/11/03 22:34:59 INFO DAGScheduler: running: Set()
+24/11/03 22:34:59 INFO DAGScheduler: waiting: Set(ResultStage 9, ShuffleMapStage 7, ShuffleMapStage 8)
+24/11/03 22:34:59 INFO DAGScheduler: failed: Set()
+24/11/03 22:34:59 INFO DAGScheduler: Submitting ShuffleMapStage 7 (MapPartitionsRDD[16] at treeAggregate at SharedTrainingMaster.java:646), which has no missing parents
+24/11/03 22:34:59 INFO MemoryStore: Block broadcast_12 stored as values in memory (estimated size 9.5 KiB, free 426.8 MiB)
+24/11/03 22:34:59 INFO MemoryStore: Block broadcast_12_piece0 stored as bytes in memory (estimated size 4.9 KiB, free 426.8 MiB)
+24/11/03 22:34:59 INFO BlockManagerInfo: Added broadcast_12_piece0 in memory on 10.0.0.230:61118 (size: 4.9 KiB, free: 431.3 MiB)
+24/11/03 22:34:59 INFO SparkContext: Created broadcast 12 from broadcast at DAGScheduler.scala:1585
+24/11/03 22:34:59 INFO DAGScheduler: Submitting 14 missing tasks from ShuffleMapStage 7 (MapPartitionsRDD[16] at treeAggregate at SharedTrainingMaster.java:646) (first 15 tasks are for partitions Vector(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13))
+24/11/03 22:34:59 INFO TaskSchedulerImpl: Adding task set 7.0 with 14 tasks resource profile 0
+24/11/03 22:34:59 INFO TaskSetManager: Starting task 0.0 in stage 7.0 (TID 17) (10.0.0.230, executor driver, partition 0, NODE_LOCAL, 9002 bytes)
+24/11/03 22:34:59 INFO TaskSetManager: Starting task 1.0 in stage 7.0 (TID 18) (10.0.0.230, executor driver, partition 1, NODE_LOCAL, 9002 bytes)
+24/11/03 22:34:59 INFO Executor: Running task 0.0 in stage 7.0 (TID 17)
+24/11/03 22:34:59 INFO Executor: Running task 1.0 in stage 7.0 (TID 18)
+24/11/03 22:34:59 INFO ShuffleBlockFetcherIterator: Getting 1 (207.0 B) non-empty blocks including 1 (207.0 B) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+24/11/03 22:34:59 INFO ShuffleBlockFetcherIterator: Getting 1 (207.0 B) non-empty blocks including 1 (207.0 B) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+24/11/03 22:34:59 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 12 ms
+24/11/03 22:34:59 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 12 ms
+24/11/03 22:34:59 WARN SharedTrainingWrapper: Can't get IP address to start VoidParameterServer client. Using localhost instead
+24/11/03 22:34:59 INFO ModelParameterServer: ModelParameterServer starting
+24/11/03 22:34:59 INFO ParallelWrapper: Using workspaceMode ENABLED for training
+24/11/03 22:34:59 INFO ParallelWrapper: Creating asynchronous prefetcher...
+24/11/03 22:34:59 INFO ParallelWrapper: Starting ParallelWrapper training round...
+24/11/03 22:34:59 INFO SharedTrainingWrapper: Feeder [Executor task launch worker for task 0.0 in stage 7.0 (TID 17)] thread done...
+24/11/03 22:34:59 ERROR ParallelWrapper: Uncaught exception: java.lang.RuntimeException: org.deeplearning4j.exception.DL4JInvalidInputException: Input size (100 columns; shape = [32, 100]) is invalid: does not match layer input size (layer # inputs = 400) (layer name: layer0, layer index: 0, layer type: DenseLayer)
+24/11/03 22:34:59 WARN SharedTrainingWrapper: Exception encountered during fit operation
+java.lang.RuntimeException: java.lang.RuntimeException: org.deeplearning4j.exception.DL4JInvalidInputException: Input size (100 columns; shape = [32, 100]) is invalid: does not match layer input size (layer # inputs = 400) (layer name: layer0, layer index: 0, layer type: DenseLayer)
+        at org.deeplearning4j.parallelism.ParallelWrapper.fit(ParallelWrapper.java:590)
+        at org.deeplearning4j.spark.parameterserver.pw.SharedTrainingWrapper.run(SharedTrainingWrapper.java:453)
+        at org.deeplearning4j.spark.parameterserver.functions.SharedFlatMapPaths.call(SharedFlatMapPaths.java:86)
+        at org.deeplearning4j.spark.parameterserver.functions.SharedFlatMapPaths.call(SharedFlatMapPaths.java:41)
+        at org.apache.spark.api.java.JavaRDDLike.$anonfun$mapPartitions$1(JavaRDDLike.scala:153)
+        at org.apache.spark.rdd.RDD.$anonfun$mapPartitions$2(RDD.scala:858)
+        at org.apache.spark.rdd.RDD.$anonfun$mapPartitions$2$adapted(RDD.scala:858)
+        at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+        at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:367)
+        at org.apache.spark.rdd.RDD.iterator(RDD.scala:331)
+        at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+        at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:367)
+        at org.apache.spark.rdd.RDD.iterator(RDD.scala:331)
+        at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+        at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:367)
+        at org.apache.spark.rdd.RDD.iterator(RDD.scala:331)
+        at org.apache.spark.shuffle.ShuffleWriteProcessor.write(ShuffleWriteProcessor.scala:59)
+        at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:104)
+        at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:54)
+        at org.apache.spark.TaskContext.runTaskWithListeners(TaskContext.scala:166)
+        at org.apache.spark.scheduler.Task.run(Task.scala:141)
+        at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$4(Executor.scala:620)
+        at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally(SparkErrorUtils.scala:64)
+        at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally$(SparkErrorUtils.scala:61)
+        at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:94)
+        at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:623)
+        at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+        at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+        at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: java.lang.RuntimeException: org.deeplearning4j.exception.DL4JInvalidInputException: Input size (100 columns; shape = [32, 100]) is invalid: does not match layer input size (layer # inputs = 400) (layer name: layer0, layer index: 0, layer type: DenseLayer)
+        at org.deeplearning4j.parallelism.trainer.DefaultTrainer.waitTillRunning(DefaultTrainer.java:468)
+        at org.deeplearning4j.parallelism.ParallelWrapper.fit(ParallelWrapper.java:588)
+        ... 28 more
+Caused by: org.deeplearning4j.exception.DL4JInvalidInputException: Input size (100 columns; shape = [32, 100]) is invalid: does not match layer input size (layer # inputs = 400) (layer name: layer0, layer index: 0, layer type: DenseLayer)
+        at org.deeplearning4j.nn.layers.BaseLayer.preOutputWithPreNorm(BaseLayer.java:318)
+        at org.deeplearning4j.nn.layers.BaseLayer.preOutput(BaseLayer.java:296)
+        at org.deeplearning4j.nn.layers.BaseLayer.activate(BaseLayer.java:344)
+        at org.deeplearning4j.nn.layers.AbstractLayer.activate(AbstractLayer.java:262)
+        at org.deeplearning4j.nn.multilayer.MultiLayerNetwork.ffToLayerActivationsInWs(MultiLayerNetwork.java:1147)
+        at org.deeplearning4j.nn.multilayer.MultiLayerNetwork.computeGradientAndScore(MultiLayerNetwork.java:2798)
+        at org.deeplearning4j.nn.multilayer.MultiLayerNetwork.computeGradientAndScore(MultiLayerNetwork.java:2756)
+        at org.deeplearning4j.optimize.solvers.BaseOptimizer.gradientAndScore(BaseOptimizer.java:174)
+        at org.deeplearning4j.optimize.solvers.StochasticGradientDescent.optimize(StochasticGradientDescent.java:61)
+        at org.deeplearning4j.optimize.Solver.optimize(Solver.java:52)
+        at org.deeplearning4j.nn.multilayer.MultiLayerNetwork.fitHelper(MultiLayerNetwork.java:2357)
+        at org.deeplearning4j.nn.multilayer.MultiLayerNetwork.fit(MultiLayerNetwork.java:2315)
+        at org.deeplearning4j.nn.multilayer.MultiLayerNetwork.fit(MultiLayerNetwork.java:2378)
+        at org.deeplearning4j.parallelism.trainer.DefaultTrainer.fit(DefaultTrainer.java:233)
+        at org.deeplearning4j.parallelism.trainer.DefaultTrainer.run(DefaultTrainer.java:382)
+        at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+        at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+        at org.deeplearning4j.parallelism.ParallelWrapper$2$1.run(ParallelWrapper.java:156)
+        ... 1 more
+java.lang.RuntimeException: org.deeplearning4j.exception.DL4JInvalidInputException: Input size (100 columns; shape = [32, 100]) is invalid: does not match layer input size (layer # inputs = 400) (layer name: layer0, layer index: 0, layer type: DenseLayer)
+        at org.deeplearning4j.parallelism.trainer.DefaultTrainer.run(DefaultTrainer.java:446)
+        at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+        at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+        at org.deeplearning4j.parallelism.ParallelWrapper$2$1.run(ParallelWrapper.java:156)
+        at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: org.deeplearning4j.exception.DL4JInvalidInputException: Input size (100 columns; shape = [32, 100]) is invalid: does not match layer input size (layer # inputs = 400) (layer name: layer0, layer index: 0, layer type: DenseLayer)
+        at org.deeplearning4j.nn.layers.BaseLayer.preOutputWithPreNorm(BaseLayer.java:318)
+        at org.deeplearning4j.nn.layers.BaseLayer.preOutput(BaseLayer.java:296)
+        at org.deeplearning4j.nn.layers.BaseLayer.activate(BaseLayer.java:344)
+        at org.deeplearning4j.nn.layers.AbstractLayer.activate(AbstractLayer.java:262)
+        at org.deeplearning4j.nn.multilayer.MultiLayerNetwork.ffToLayerActivationsInWs(MultiLayerNetwork.java:1147)
+        at org.deeplearning4j.nn.multilayer.MultiLayerNetwork.computeGradientAndScore(MultiLayerNetwork.java:2798)
+        at org.deeplearning4j.nn.multilayer.MultiLayerNetwork.computeGradientAndScore(MultiLayerNetwork.java:2756)
+        at org.deeplearning4j.optimize.solvers.BaseOptimizer.gradientAndScore(BaseOptimizer.java:174)
+        at org.deeplearning4j.optimize.solvers.StochasticGradientDescent.optimize(StochasticGradientDescent.java:61)
+        at org.deeplearning4j.optimize.Solver.optimize(Solver.java:52)
+        at org.deeplearning4j.nn.multilayer.MultiLayerNetwork.fitHelper(MultiLayerNetwork.java:2357)
+        at org.deeplearning4j.nn.multilayer.MultiLayerNetwork.fit(MultiLayerNetwork.java:2315)
+        at org.deeplearning4j.nn.multilayer.MultiLayerNetwork.fit(MultiLayerNetwork.java:2378)
+        at org.deeplearning4j.parallelism.trainer.DefaultTrainer.fit(DefaultTrainer.java:233)
+        at org.deeplearning4j.parallelism.trainer.DefaultTrainer.run(DefaultTrainer.java:382)
+        ... 4 more
+24/11/03 22:34:59 INFO SharedTrainingWrapper: Master thread done...
+24/11/03 22:34:59 INFO Executor: Finished task 0.0 in stage 7.0 (TID 17). 1908 bytes result sent to driver
+24/11/03 22:34:59 INFO TaskSetManager: Starting task 2.0 in stage 7.0 (TID 19) (10.0.0.230, executor driver, partition 2, NODE_LOCAL, 9002 bytes)
+24/11/03 22:34:59 INFO TaskSetManager: Finished task 0.0 in stage 7.0 (TID 17) in 299 ms on 10.0.0.230 (executor driver) (1/14)
+24/11/03 22:34:59 INFO Executor: Running task 2.0 in stage 7.0 (TID 19)
+24/11/03 22:34:59 INFO Executor: Finished task 1.0 in stage 7.0 (TID 18). 1865 bytes result sent to driver
+24/11/03 22:34:59 INFO TaskSetManager: Starting task 3.0 in stage 7.0 (TID 20) (10.0.0.230, executor driver, partition 3, NODE_LOCAL, 9002 bytes)
+24/11/03 22:34:59 INFO TaskSetManager: Finished task 1.0 in stage 7.0 (TID 18) in 304 ms on 10.0.0.230 (executor driver) (2/14)
+24/11/03 22:34:59 INFO ShuffleBlockFetcherIterator: Getting 1 (207.0 B) non-empty blocks including 1 (207.0 B) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+24/11/03 22:34:59 INFO Executor: Running task 3.0 in stage 7.0 (TID 20)
+24/11/03 22:34:59 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 2 ms
+24/11/03 22:34:59 INFO ParallelWrapper: Using workspaceMode ENABLED for training
+24/11/03 22:34:59 INFO ParallelWrapper: Creating asynchronous prefetcher...
+24/11/03 22:34:59 INFO BlockManagerInfo: Removed broadcast_6_piece0 on 10.0.0.230:61118 in memory (size: 3.3 KiB, free: 431.3 MiB)
+24/11/03 22:34:59 INFO ShuffleBlockFetcherIterator: Getting 1 (207.0 B) non-empty blocks including 1 (207.0 B) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+24/11/03 22:34:59 INFO ParallelWrapper: Starting ParallelWrapper training round...
+24/11/03 22:34:59 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 4 ms
+24/11/03 22:34:59 INFO BlockManagerInfo: Removed broadcast_11_piece0 on 10.0.0.230:61118 in memory (size: 3.6 KiB, free: 431.3 MiB)
+24/11/03 22:34:59 INFO BlockManagerInfo: Removed broadcast_3_piece0 on 10.0.0.230:61118 in memory (size: 2.8 MiB, free: 434.1 MiB)
+24/11/03 22:34:59 INFO BlockManagerInfo: Removed broadcast_5_piece0 on 10.0.0.230:61118 in memory (size: 2.8 KiB, free: 434.1 MiB)
+24/11/03 22:35:00 INFO BlockManagerInfo: Removed broadcast_7_piece0 on 10.0.0.230:61118 in memory (size: 2.9 KiB, free: 434.1 MiB)
+24/11/03 22:35:00 INFO SharedTrainingWrapper: Feeder [Executor task launch worker for task 3.0 in stage 7.0 (TID 20)] thread done...
+24/11/03 22:35:00 INFO Executor: Finished task 3.0 in stage 7.0 (TID 20). 1865 bytes result sent to driver
+24/11/03 22:35:00 INFO TaskSetManager: Starting task 4.0 in stage 7.0 (TID 21) (10.0.0.230, executor driver, partition 4, NODE_LOCAL, 9002 bytes)
+24/11/03 22:35:00 INFO TaskSetManager: Finished task 3.0 in stage 7.0 (TID 20) in 66 ms on 10.0.0.230 (executor driver) (3/14)
+24/11/03 22:35:00 INFO Executor: Running task 4.0 in stage 7.0 (TID 21)
+24/11/03 22:35:00 INFO ShuffleBlockFetcherIterator: Getting 1 (207.0 B) non-empty blocks including 1 (207.0 B) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+24/11/03 22:35:00 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+24/11/03 22:35:00 ERROR ParallelWrapper: Uncaught exception: java.lang.RuntimeException: org.deeplearning4j.exception.DL4JInvalidInputException: Input size (100 columns; shape = [32, 100]) is invalid: does not match layer input size (layer # inputs = 400) (layer name: layer0, layer index: 0, layer type: DenseLayer)
+java.lang.RuntimeException: org.deeplearning4j.exception.DL4JInvalidInputException: Input size (100 columns; shape = [32, 100]) is invalid: does not match layer input size (layer # inputs = 400) (layer name: layer0, layer index: 0, layer type: DenseLayer)
+        at org.deeplearning4j.parallelism.trainer.DefaultTrainer.run(DefaultTrainer.java:446)
+        at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+        at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+        at org.deeplearning4j.parallelism.ParallelWrapper$2$1.run(ParallelWrapper.java:156)
+        at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: org.deeplearning4j.exception.DL4JInvalidInputException: Input size (100 columns; shape = [32, 100]) is invalid: does not match layer input size (layer # inputs = 400) (layer name: layer0, layer index: 0, layer type: DenseLayer)
+        at org.deeplearning4j.nn.layers.BaseLayer.preOutputWithPreNorm(BaseLayer.java:318)
+        at org.deeplearning4j.nn.layers.BaseLayer.preOutput(BaseLayer.java:296)
+        at org.deeplearning4j.nn.layers.BaseLayer.activate(BaseLayer.java:344)
+        at org.deeplearning4j.nn.layers.AbstractLayer.activate(AbstractLayer.java:262)
+        at org.deeplearning4j.nn.multilayer.MultiLayerNetwork.ffToLayerActivationsInWs(MultiLayerNetwork.java:1147)
+        at org.deeplearning4j.nn.multilayer.MultiLayerNetwork.computeGradientAndScore(MultiLayerNetwork.java:2798)
+        at org.deeplearning4j.nn.multilayer.MultiLayerNetwork.computeGradientAndScore(MultiLayerNetwork.java:2756)
+        at org.deeplearning4j.optimize.solvers.BaseOptimizer.gradientAndScore(BaseOptimizer.java:174)
+        at org.deeplearning4j.optimize.solvers.StochasticGradientDescent.optimize(StochasticGradientDescent.java:61)
+        at org.deeplearning4j.optimize.Solver.optimize(Solver.java:52)
+        at org.deeplearning4j.nn.multilayer.MultiLayerNetwork.fitHelper(MultiLayerNetwork.java:2357)
+        at org.deeplearning4j.nn.multilayer.MultiLayerNetwork.fit(MultiLayerNetwork.java:2315)
+        at org.deeplearning4j.nn.multilayer.MultiLayerNetwork.fit(MultiLayerNetwork.java:2378)
+        at org.deeplearning4j.parallelism.trainer.DefaultTrainer.fit(DefaultTrainer.java:233)
+        at org.deeplearning4j.parallelism.trainer.DefaultTrainer.run(DefaultTrainer.java:382)
+        ... 4 more
+24/11/03 22:35:00 INFO SharedTrainingWrapper: Feeder [Executor task launch worker for task 4.0 in stage 7.0 (TID 21)] thread done...
+24/11/03 22:35:00 ERROR Executor: Exception in task 4.0 in stage 7.0 (TID 21)
+java.lang.RuntimeException: Training failed due to exception in ParallelWrapper fit operation
+        at org.deeplearning4j.spark.parameterserver.pw.SharedTrainingWrapper.run(SharedTrainingWrapper.java:551)
+        at org.deeplearning4j.spark.parameterserver.functions.SharedFlatMapPaths.call(SharedFlatMapPaths.java:86)
+        at org.deeplearning4j.spark.parameterserver.functions.SharedFlatMapPaths.call(SharedFlatMapPaths.java:41)
+        at org.apache.spark.api.java.JavaRDDLike.$anonfun$mapPartitions$1(JavaRDDLike.scala:153)
+        at org.apache.spark.rdd.RDD.$anonfun$mapPartitions$2(RDD.scala:858)
+        at org.apache.spark.rdd.RDD.$anonfun$mapPartitions$2$adapted(RDD.scala:858)
+        at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+        at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:367)
+        at org.apache.spark.rdd.RDD.iterator(RDD.scala:331)
+        at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+        at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:367)
+        at org.apache.spark.rdd.RDD.iterator(RDD.scala:331)
+        at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+        at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:367)
+        at org.apache.spark.rdd.RDD.iterator(RDD.scala:331)
+        at org.apache.spark.shuffle.ShuffleWriteProcessor.write(ShuffleWriteProcessor.scala:59)
+        at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:104)
+        at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:54)
+        at org.apache.spark.TaskContext.runTaskWithListeners(TaskContext.scala:166)
+        at org.apache.spark.scheduler.Task.run(Task.scala:141)
+        at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$4(Executor.scala:620)
+        at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally(SparkErrorUtils.scala:64)
+        at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally$(SparkErrorUtils.scala:61)
+        at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:94)
+        at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:623)
+        at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+        at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+        at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: java.lang.RuntimeException: org.deeplearning4j.exception.DL4JInvalidInputException: Input size (100 columns; shape = [32, 100]) is invalid: does not match layer input size (layer # inputs = 400) (layer name: layer0, layer index: 0, layer type: DenseLayer)
+        at org.deeplearning4j.parallelism.trainer.DefaultTrainer.run(DefaultTrainer.java:446)
+        at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+        at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+        at org.deeplearning4j.parallelism.ParallelWrapper$2$1.run(ParallelWrapper.java:156)
+        ... 1 more
+Caused by: org.deeplearning4j.exception.DL4JInvalidInputException: Input size (100 columns; shape = [32, 100]) is invalid: does not match layer input size (layer # inputs = 400) (layer name: layer0, layer index: 0, layer type: DenseLayer)
+        at org.deeplearning4j.nn.layers.BaseLayer.preOutputWithPreNorm(BaseLayer.java:318)
+        at org.deeplearning4j.nn.layers.BaseLayer.preOutput(BaseLayer.java:296)
+        at org.deeplearning4j.nn.layers.BaseLayer.activate(BaseLayer.java:344)
+        at org.deeplearning4j.nn.layers.AbstractLayer.activate(AbstractLayer.java:262)
+        at org.deeplearning4j.nn.multilayer.MultiLayerNetwork.ffToLayerActivationsInWs(MultiLayerNetwork.java:1147)
+        at org.deeplearning4j.nn.multilayer.MultiLayerNetwork.computeGradientAndScore(MultiLayerNetwork.java:2798)
+        at org.deeplearning4j.nn.multilayer.MultiLayerNetwork.computeGradientAndScore(MultiLayerNetwork.java:2756)
+        at org.deeplearning4j.optimize.solvers.BaseOptimizer.gradientAndScore(BaseOptimizer.java:174)
+        at org.deeplearning4j.optimize.solvers.StochasticGradientDescent.optimize(StochasticGradientDescent.java:61)
+        at org.deeplearning4j.optimize.Solver.optimize(Solver.java:52)
+        at org.deeplearning4j.nn.multilayer.MultiLayerNetwork.fitHelper(MultiLayerNetwork.java:2357)
+        at org.deeplearning4j.nn.multilayer.MultiLayerNetwork.fit(MultiLayerNetwork.java:2315)
+        at org.deeplearning4j.nn.multilayer.MultiLayerNetwork.fit(MultiLayerNetwork.java:2378)
+        at org.deeplearning4j.parallelism.trainer.DefaultTrainer.fit(DefaultTrainer.java:233)
+        at org.deeplearning4j.parallelism.trainer.DefaultTrainer.run(DefaultTrainer.java:382)
+        ... 4 more
+24/11/03 22:35:00 INFO TaskSetManager: Starting task 5.0 in stage 7.0 (TID 22) (10.0.0.230, executor driver, partition 5, NODE_LOCAL, 9002 bytes)
+24/11/03 22:35:00 INFO Executor: Running task 5.0 in stage 7.0 (TID 22)
+24/11/03 22:35:00 WARN TaskSetManager: Lost task 4.0 in stage 7.0 (TID 21) (10.0.0.230 executor driver): java.lang.RuntimeException: Training failed due to exception in ParallelWrapper fit operation
+        at org.deeplearning4j.spark.parameterserver.pw.SharedTrainingWrapper.run(SharedTrainingWrapper.java:551)
+        at org.deeplearning4j.spark.parameterserver.functions.SharedFlatMapPaths.call(SharedFlatMapPaths.java:86)
+        at org.deeplearning4j.spark.parameterserver.functions.SharedFlatMapPaths.call(SharedFlatMapPaths.java:41)
+        at org.apache.spark.api.java.JavaRDDLike.$anonfun$mapPartitions$1(JavaRDDLike.scala:153)
+        at org.apache.spark.rdd.RDD.$anonfun$mapPartitions$2(RDD.scala:858)
+        at org.apache.spark.rdd.RDD.$anonfun$mapPartitions$2$adapted(RDD.scala:858)
+        at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+        at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:367)
+        at org.apache.spark.rdd.RDD.iterator(RDD.scala:331)
+        at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+        at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:367)
+        at org.apache.spark.rdd.RDD.iterator(RDD.scala:331)
+        at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+        at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:367)
+        at org.apache.spark.rdd.RDD.iterator(RDD.scala:331)
+        at org.apache.spark.shuffle.ShuffleWriteProcessor.write(ShuffleWriteProcessor.scala:59)
+        at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:104)
+        at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:54)
+        at org.apache.spark.TaskContext.runTaskWithListeners(TaskContext.scala:166)
+        at org.apache.spark.scheduler.Task.run(Task.scala:141)
+        at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$4(Executor.scala:620)
+        at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally(SparkErrorUtils.scala:64)
+        at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally$(SparkErrorUtils.scala:61)
+        at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:94)
+        at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:623)
+        at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+        at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+        at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: java.lang.RuntimeException: org.deeplearning4j.exception.DL4JInvalidInputException: Input size (100 columns; shape = [32, 100]) is invalid: does not match layer input size (layer # inputs = 400) (layer name: layer0, layer index: 0, layer type: DenseLayer)
+        at org.deeplearning4j.parallelism.trainer.DefaultTrainer.run(DefaultTrainer.java:446)
+        at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+        at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+        at org.deeplearning4j.parallelism.ParallelWrapper$2$1.run(ParallelWrapper.java:156)
+        ... 1 more
+Caused by: org.deeplearning4j.exception.DL4JInvalidInputException: Input size (100 columns; shape = [32, 100]) is invalid: does not match layer input size (layer # inputs = 400) (layer name: layer0, layer index: 0, layer type: DenseLayer)
+        at org.deeplearning4j.nn.layers.BaseLayer.preOutputWithPreNorm(BaseLayer.java:318)
+        at org.deeplearning4j.nn.layers.BaseLayer.preOutput(BaseLayer.java:296)
+        at org.deeplearning4j.nn.layers.BaseLayer.activate(BaseLayer.java:344)
+        at org.deeplearning4j.nn.layers.AbstractLayer.activate(AbstractLayer.java:262)
+        at org.deeplearning4j.nn.multilayer.MultiLayerNetwork.ffToLayerActivationsInWs(MultiLayerNetwork.java:1147)
+        at org.deeplearning4j.nn.multilayer.MultiLayerNetwork.computeGradientAndScore(MultiLayerNetwork.java:2798)
+        at org.deeplearning4j.nn.multilayer.MultiLayerNetwork.computeGradientAndScore(MultiLayerNetwork.java:2756)
+        at org.deeplearning4j.optimize.solvers.BaseOptimizer.gradientAndScore(BaseOptimizer.java:174)
+        at org.deeplearning4j.optimize.solvers.StochasticGradientDescent.optimize(StochasticGradientDescent.java:61)
+        at org.deeplearning4j.optimize.Solver.optimize(Solver.java:52)
+        at org.deeplearning4j.nn.multilayer.MultiLayerNetwork.fitHelper(MultiLayerNetwork.java:2357)
+        at org.deeplearning4j.nn.multilayer.MultiLayerNetwork.fit(MultiLayerNetwork.java:2315)
+        at org.deeplearning4j.nn.multilayer.MultiLayerNetwork.fit(MultiLayerNetwork.java:2378)
+        at org.deeplearning4j.parallelism.trainer.DefaultTrainer.fit(DefaultTrainer.java:233)
+        at org.deeplearning4j.parallelism.trainer.DefaultTrainer.run(DefaultTrainer.java:382)
+        ... 4 more
+
+24/11/03 22:35:00 INFO ShuffleBlockFetcherIterator: Getting 1 (207.0 B) non-empty blocks including 1 (207.0 B) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+24/11/03 22:35:00 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 1 ms
+24/11/03 22:35:00 ERROR TaskSetManager: Task 4 in stage 7.0 failed 1 times; aborting job
+24/11/03 22:35:00 INFO SharedTrainingWrapper: Feeder [Executor task launch worker for task 5.0 in stage 7.0 (TID 22)] thread done...
+24/11/03 22:35:00 INFO TaskSchedulerImpl: Cancelling stage 7
+24/11/03 22:35:00 INFO TaskSchedulerImpl: Killing all running tasks in stage 7: Stage cancelled: Job aborted due to stage failure: Task 4 in stage 7.0 failed 1 times, most recent failure: Lost task 4.0 in stage 7.0 (TID 21) (10.0.0.230 executor driver): java.lang.RuntimeException: Training failed due to exception in ParallelWrapper fit operation
+        at org.deeplearning4j.spark.parameterserver.pw.SharedTrainingWrapper.run(SharedTrainingWrapper.java:551)
+        at org.deeplearning4j.spark.parameterserver.functions.SharedFlatMapPaths.call(SharedFlatMapPaths.java:86)
+        at org.deeplearning4j.spark.parameterserver.functions.SharedFlatMapPaths.call(SharedFlatMapPaths.java:41)
+        at org.apache.spark.api.java.JavaRDDLike.$anonfun$mapPartitions$1(JavaRDDLike.scala:153)
+        at org.apache.spark.rdd.RDD.$anonfun$mapPartitions$2(RDD.scala:858)
+        at org.apache.spark.rdd.RDD.$anonfun$mapPartitions$2$adapted(RDD.scala:858)
+        at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+        at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:367)
+        at org.apache.spark.rdd.RDD.iterator(RDD.scala:331)
+        at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+        at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:367)
+        at org.apache.spark.rdd.RDD.iterator(RDD.scala:331)
+        at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+        at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:367)
+        at org.apache.spark.rdd.RDD.iterator(RDD.scala:331)
+        at org.apache.spark.shuffle.ShuffleWriteProcessor.write(ShuffleWriteProcessor.scala:59)
+        at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:104)
+        at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:54)
+        at org.apache.spark.TaskContext.runTaskWithListeners(TaskContext.scala:166)
+        at org.apache.spark.scheduler.Task.run(Task.scala:141)
+        at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$4(Executor.scala:620)
+        at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally(SparkErrorUtils.scala:64)
+        at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally$(SparkErrorUtils.scala:61)
+        at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:94)
+        at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:623)
+        at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+        at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+        at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: java.lang.RuntimeException: org.deeplearning4j.exception.DL4JInvalidInputException: Input size (100 columns; shape = [32, 100]) is invalid: does not match layer input size (layer # inputs = 400) (layer name: layer0, layer index: 0, layer type: DenseLayer)
+        at org.deeplearning4j.parallelism.trainer.DefaultTrainer.run(DefaultTrainer.java:446)
+        at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+        at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+        at org.deeplearning4j.parallelism.ParallelWrapper$2$1.run(ParallelWrapper.java:156)
+        ... 1 more
+Caused by: org.deeplearning4j.exception.DL4JInvalidInputException: Input size (100 columns; shape = [32, 100]) is invalid: does not match layer input size (layer # inputs = 400) (layer name: layer0, layer index: 0, layer type: DenseLayer)
+        at org.deeplearning4j.nn.layers.BaseLayer.preOutputWithPreNorm(BaseLayer.java:318)
+        at org.deeplearning4j.nn.layers.BaseLayer.preOutput(BaseLayer.java:296)
+        at org.deeplearning4j.nn.layers.BaseLayer.activate(BaseLayer.java:344)
+        at org.deeplearning4j.nn.layers.AbstractLayer.activate(AbstractLayer.java:262)
+        at org.deeplearning4j.nn.multilayer.MultiLayerNetwork.ffToLayerActivationsInWs(MultiLayerNetwork.java:1147)
+        at org.deeplearning4j.nn.multilayer.MultiLayerNetwork.computeGradientAndScore(MultiLayerNetwork.java:2798)
+        at org.deeplearning4j.nn.multilayer.MultiLayerNetwork.computeGradientAndScore(MultiLayerNetwork.java:2756)
+        at org.deeplearning4j.optimize.solvers.BaseOptimizer.gradientAndScore(BaseOptimizer.java:174)
+        at org.deeplearning4j.optimize.solvers.StochasticGradientDescent.optimize(StochasticGradientDescent.java:61)
+        at org.deeplearning4j.optimize.Solver.optimize(Solver.java:52)
+        at org.deeplearning4j.nn.multilayer.MultiLayerNetwork.fitHelper(MultiLayerNetwork.java:2357)
+        at org.deeplearning4j.nn.multilayer.MultiLayerNetwork.fit(MultiLayerNetwork.java:2315)
+        at org.deeplearning4j.nn.multilayer.MultiLayerNetwork.fit(MultiLayerNetwork.java:2378)
+        at org.deeplearning4j.parallelism.trainer.DefaultTrainer.fit(DefaultTrainer.java:233)
+        at org.deeplearning4j.parallelism.trainer.DefaultTrainer.run(DefaultTrainer.java:382)
+        ... 4 more
+
+Driver stacktrace:
+24/11/03 22:35:00 ERROR Executor: Exception in task 5.0 in stage 7.0 (TID 22)
+java.lang.RuntimeException: Training failed due to exception in ParallelWrapper fit operation
+        at org.deeplearning4j.spark.parameterserver.pw.SharedTrainingWrapper.run(SharedTrainingWrapper.java:551)
+        at org.deeplearning4j.spark.parameterserver.functions.SharedFlatMapPaths.call(SharedFlatMapPaths.java:86)
+        at org.deeplearning4j.spark.parameterserver.functions.SharedFlatMapPaths.call(SharedFlatMapPaths.java:41)
+        at org.apache.spark.api.java.JavaRDDLike.$anonfun$mapPartitions$1(JavaRDDLike.scala:153)
+        at org.apache.spark.rdd.RDD.$anonfun$mapPartitions$2(RDD.scala:858)
+        at org.apache.spark.rdd.RDD.$anonfun$mapPartitions$2$adapted(RDD.scala:858)
+        at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+        at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:367)
+        at org.apache.spark.rdd.RDD.iterator(RDD.scala:331)
+        at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+        at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:367)
+        at org.apache.spark.rdd.RDD.iterator(RDD.scala:331)
+        at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+        at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:367)
+        at org.apache.spark.rdd.RDD.iterator(RDD.scala:331)
+        at org.apache.spark.shuffle.ShuffleWriteProcessor.write(ShuffleWriteProcessor.scala:59)
+        at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:104)
+        at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:54)
+        at org.apache.spark.TaskContext.runTaskWithListeners(TaskContext.scala:166)
+        at org.apache.spark.scheduler.Task.run(Task.scala:141)
+        at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$4(Executor.scala:620)
+        at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally(SparkErrorUtils.scala:64)
+        at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally$(SparkErrorUtils.scala:61)
+        at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:94)
+        at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:623)
+        at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+        at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+        at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: java.lang.RuntimeException: org.deeplearning4j.exception.DL4JInvalidInputException: Input size (100 columns; shape = [32, 100]) is invalid: does not match layer input size (layer # inputs = 400) (layer name: layer0, layer index: 0, layer type: DenseLayer)
+        at org.deeplearning4j.parallelism.trainer.DefaultTrainer.run(DefaultTrainer.java:446)
+        at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+        at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+        at org.deeplearning4j.parallelism.ParallelWrapper$2$1.run(ParallelWrapper.java:156)
+        ... 1 more
+Caused by: org.deeplearning4j.exception.DL4JInvalidInputException: Input size (100 columns; shape = [32, 100]) is invalid: does not match layer input size (layer # inputs = 400) (layer name: layer0, layer index: 0, layer type: DenseLayer)
+        at org.deeplearning4j.nn.layers.BaseLayer.preOutputWithPreNorm(BaseLayer.java:318)
+        at org.deeplearning4j.nn.layers.BaseLayer.preOutput(BaseLayer.java:296)
+        at org.deeplearning4j.nn.layers.BaseLayer.activate(BaseLayer.java:344)
+        at org.deeplearning4j.nn.layers.AbstractLayer.activate(AbstractLayer.java:262)
+        at org.deeplearning4j.nn.multilayer.MultiLayerNetwork.ffToLayerActivationsInWs(MultiLayerNetwork.java:1147)
+        at org.deeplearning4j.nn.multilayer.MultiLayerNetwork.computeGradientAndScore(MultiLayerNetwork.java:2798)
+        at org.deeplearning4j.nn.multilayer.MultiLayerNetwork.computeGradientAndScore(MultiLayerNetwork.java:2756)
+        at org.deeplearning4j.optimize.solvers.BaseOptimizer.gradientAndScore(BaseOptimizer.java:174)
+        at org.deeplearning4j.optimize.solvers.StochasticGradientDescent.optimize(StochasticGradientDescent.java:61)
+        at org.deeplearning4j.optimize.Solver.optimize(Solver.java:52)
+        at org.deeplearning4j.nn.multilayer.MultiLayerNetwork.fitHelper(MultiLayerNetwork.java:2357)
+        at org.deeplearning4j.nn.multilayer.MultiLayerNetwork.fit(MultiLayerNetwork.java:2315)
+        at org.deeplearning4j.nn.multilayer.MultiLayerNetwork.fit(MultiLayerNetwork.java:2378)
+        at org.deeplearning4j.parallelism.trainer.DefaultTrainer.fit(DefaultTrainer.java:233)
+        at org.deeplearning4j.parallelism.trainer.DefaultTrainer.run(DefaultTrainer.java:382)
+        ... 4 more
+24/11/03 22:35:00 INFO Executor: Executor is trying to kill task 2.0 in stage 7.0 (TID 19), reason: Stage cancelled: Job aborted due to stage failure: Task 4 in stage 7.0 failed 1 times, most recent failure: Lost task 4.0 in stage 7.0 (TID 21) (10.0.0.230 executor driver): java.lang.RuntimeException: Training failed due to exception in ParallelWrapper fit operation
+        at org.deeplearning4j.spark.parameterserver.pw.SharedTrainingWrapper.run(SharedTrainingWrapper.java:551)
+        at org.deeplearning4j.spark.parameterserver.functions.SharedFlatMapPaths.call(SharedFlatMapPaths.java:86)
+        at org.deeplearning4j.spark.parameterserver.functions.SharedFlatMapPaths.call(SharedFlatMapPaths.java:41)
+        at org.apache.spark.api.java.JavaRDDLike.$anonfun$mapPartitions$1(JavaRDDLike.scala:153)
+        at org.apache.spark.rdd.RDD.$anonfun$mapPartitions$2(RDD.scala:858)
+        at org.apache.spark.rdd.RDD.$anonfun$mapPartitions$2$adapted(RDD.scala:858)
+        at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+        at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:367)
+        at org.apache.spark.rdd.RDD.iterator(RDD.scala:331)
+        at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+        at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:367)
+        at org.apache.spark.rdd.RDD.iterator(RDD.scala:331)
+        at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+        at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:367)
+        at org.apache.spark.rdd.RDD.iterator(RDD.scala:331)
+        at org.apache.spark.shuffle.ShuffleWriteProcessor.write(ShuffleWriteProcessor.scala:59)
+        at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:104)
+        at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:54)
+        at org.apache.spark.TaskContext.runTaskWithListeners(TaskContext.scala:166)
+        at org.apache.spark.scheduler.Task.run(Task.scala:141)
+        at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$4(Executor.scala:620)
+        at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally(SparkErrorUtils.scala:64)
+        at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally$(SparkErrorUtils.scala:61)
+        at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:94)
+        at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:623)
+        at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+        at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+        at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: java.lang.RuntimeException: org.deeplearning4j.exception.DL4JInvalidInputException: Input size (100 columns; shape = [32, 100]) is invalid: does not match layer input size (layer # inputs = 400) (layer name: layer0, layer index: 0, layer type: DenseLayer)
+        at org.deeplearning4j.parallelism.trainer.DefaultTrainer.run(DefaultTrainer.java:446)
+        at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+        at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+        at org.deeplearning4j.parallelism.ParallelWrapper$2$1.run(ParallelWrapper.java:156)
+        ... 1 more
+Caused by: org.deeplearning4j.exception.DL4JInvalidInputException: Input size (100 columns; shape = [32, 100]) is invalid: does not match layer input size (layer # inputs = 400) (layer name: layer0, layer index: 0, layer type: DenseLayer)
+        at org.deeplearning4j.nn.layers.BaseLayer.preOutputWithPreNorm(BaseLayer.java:318)
+        at org.deeplearning4j.nn.layers.BaseLayer.preOutput(BaseLayer.java:296)
+        at org.deeplearning4j.nn.layers.BaseLayer.activate(BaseLayer.java:344)
+        at org.deeplearning4j.nn.layers.AbstractLayer.activate(AbstractLayer.java:262)
+        at org.deeplearning4j.nn.multilayer.MultiLayerNetwork.ffToLayerActivationsInWs(MultiLayerNetwork.java:1147)
+        at org.deeplearning4j.nn.multilayer.MultiLayerNetwork.computeGradientAndScore(MultiLayerNetwork.java:2798)
+        at org.deeplearning4j.nn.multilayer.MultiLayerNetwork.computeGradientAndScore(MultiLayerNetwork.java:2756)
+        at org.deeplearning4j.optimize.solvers.BaseOptimizer.gradientAndScore(BaseOptimizer.java:174)
+        at org.deeplearning4j.optimize.solvers.StochasticGradientDescent.optimize(StochasticGradientDescent.java:61)
+        at org.deeplearning4j.optimize.Solver.optimize(Solver.java:52)
+        at org.deeplearning4j.nn.multilayer.MultiLayerNetwork.fitHelper(MultiLayerNetwork.java:2357)
+        at org.deeplearning4j.nn.multilayer.MultiLayerNetwork.fit(MultiLayerNetwork.java:2315)
+        at org.deeplearning4j.nn.multilayer.MultiLayerNetwork.fit(MultiLayerNetwork.java:2378)
+        at org.deeplearning4j.parallelism.trainer.DefaultTrainer.fit(DefaultTrainer.java:233)
+        at org.deeplearning4j.parallelism.trainer.DefaultTrainer.run(DefaultTrainer.java:382)
+        ... 4 more
+
+Driver stacktrace:
+24/11/03 22:35:00 INFO TaskSchedulerImpl: Stage 7 was cancelled
+24/11/03 22:35:00 INFO DAGScheduler: ShuffleMapStage 7 (treeAggregate at SharedTrainingMaster.java:646) failed in 0.836 s due to Job aborted due to stage failure: Task 4 in stage 7.0 failed 1 times, most recent failure: Lost task 4.0 in stage 7.0 (TID 21) (10.0.0.230 executor driver): java.lang.RuntimeException: Training failed due to exception in ParallelWrapper fit operation
+        at org.deeplearning4j.spark.parameterserver.pw.SharedTrainingWrapper.run(SharedTrainingWrapper.java:551)
+        at org.deeplearning4j.spark.parameterserver.functions.SharedFlatMapPaths.call(SharedFlatMapPaths.java:86)
+        at org.deeplearning4j.spark.parameterserver.functions.SharedFlatMapPaths.call(SharedFlatMapPaths.java:41)
+        at org.apache.spark.api.java.JavaRDDLike.$anonfun$mapPartitions$1(JavaRDDLike.scala:153)
+        at org.apache.spark.rdd.RDD.$anonfun$mapPartitions$2(RDD.scala:858)
+        at org.apache.spark.rdd.RDD.$anonfun$mapPartitions$2$adapted(RDD.scala:858)
+        at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+        at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:367)
+        at org.apache.spark.rdd.RDD.iterator(RDD.scala:331)
+        at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+        at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:367)
+        at org.apache.spark.rdd.RDD.iterator(RDD.scala:331)
+        at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+        at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:367)
+        at org.apache.spark.rdd.RDD.iterator(RDD.scala:331)
+        at org.apache.spark.shuffle.ShuffleWriteProcessor.write(ShuffleWriteProcessor.scala:59)
+        at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:104)
+        at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:54)
+        at org.apache.spark.TaskContext.runTaskWithListeners(TaskContext.scala:166)
+        at org.apache.spark.scheduler.Task.run(Task.scala:141)
+        at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$4(Executor.scala:620)
+        at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally(SparkErrorUtils.scala:64)
+        at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally$(SparkErrorUtils.scala:61)
+        at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:94)
+        at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:623)
+        at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+        at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+        at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: java.lang.RuntimeException: org.deeplearning4j.exception.DL4JInvalidInputException: Input size (100 columns; shape = [32, 100]) is invalid: does not match layer input size (layer # inputs = 400) (layer name: layer0, layer index: 0, layer type: DenseLayer)
+        at org.deeplearning4j.parallelism.trainer.DefaultTrainer.run(DefaultTrainer.java:446)
+        at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+        at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+        at org.deeplearning4j.parallelism.ParallelWrapper$2$1.run(ParallelWrapper.java:156)
+        ... 1 more
+Caused by: org.deeplearning4j.exception.DL4JInvalidInputException: Input size (100 columns; shape = [32, 100]) is invalid: does not match layer input size (layer # inputs = 400) (layer name: layer0, layer index: 0, layer type: DenseLayer)
+        at org.deeplearning4j.nn.layers.BaseLayer.preOutputWithPreNorm(BaseLayer.java:318)
+        at org.deeplearning4j.nn.layers.BaseLayer.preOutput(BaseLayer.java:296)
+        at org.deeplearning4j.nn.layers.BaseLayer.activate(BaseLayer.java:344)
+        at org.deeplearning4j.nn.layers.AbstractLayer.activate(AbstractLayer.java:262)
+        at org.deeplearning4j.nn.multilayer.MultiLayerNetwork.ffToLayerActivationsInWs(MultiLayerNetwork.java:1147)
+        at org.deeplearning4j.nn.multilayer.MultiLayerNetwork.computeGradientAndScore(MultiLayerNetwork.java:2798)
+        at org.deeplearning4j.nn.multilayer.MultiLayerNetwork.computeGradientAndScore(MultiLayerNetwork.java:2756)
+        at org.deeplearning4j.optimize.solvers.BaseOptimizer.gradientAndScore(BaseOptimizer.java:174)
+        at org.deeplearning4j.optimize.solvers.StochasticGradientDescent.optimize(StochasticGradientDescent.java:61)
+        at org.deeplearning4j.optimize.Solver.optimize(Solver.java:52)
+        at org.deeplearning4j.nn.multilayer.MultiLayerNetwork.fitHelper(MultiLayerNetwork.java:2357)
+        at org.deeplearning4j.nn.multilayer.MultiLayerNetwork.fit(MultiLayerNetwork.java:2315)
+        at org.deeplearning4j.nn.multilayer.MultiLayerNetwork.fit(MultiLayerNetwork.java:2378)
+        at org.deeplearning4j.parallelism.trainer.DefaultTrainer.fit(DefaultTrainer.java:233)
+        at org.deeplearning4j.parallelism.trainer.DefaultTrainer.run(DefaultTrainer.java:382)
+        ... 4 more
+
+Driver stacktrace:
+24/11/03 22:35:00 INFO TaskSetManager: Lost task 5.0 in stage 7.0 (TID 22) on 10.0.0.230, executor driver: java.lang.RuntimeException (Training failed due to exception in ParallelWrapper fit operation) [duplicate 1]
+24/11/03 22:35:00 INFO DAGScheduler: Job 6 failed: treeAggregate at SharedTrainingMaster.java:646, took 0.981139 s
+Exception in thread "main" org.apache.spark.SparkException: Job aborted due to stage failure: Task 4 in stage 7.0 failed 1 times, most recent failure: Lost task 4.0 in stage 7.0 (TID 21) (10.0.0.230 executor driver): java.lang.RuntimeException: Training failed due to exception in ParallelWrapper fit operation
+        at org.deeplearning4j.spark.parameterserver.pw.SharedTrainingWrapper.run(SharedTrainingWrapper.java:551)
+        at org.deeplearning4j.spark.parameterserver.functions.SharedFlatMapPaths.call(SharedFlatMapPaths.java:86)
+        at org.deeplearning4j.spark.parameterserver.functions.SharedFlatMapPaths.call(SharedFlatMapPaths.java:41)
+        at org.apache.spark.api.java.JavaRDDLike.$anonfun$mapPartitions$1(JavaRDDLike.scala:153)
+        at org.apache.spark.rdd.RDD.$anonfun$mapPartitions$2(RDD.scala:858)
+        at org.apache.spark.rdd.RDD.$anonfun$mapPartitions$2$adapted(RDD.scala:858)
+        at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+        at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:367)
+        at org.apache.spark.rdd.RDD.iterator(RDD.scala:331)
+        at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+        at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:367)
+        at org.apache.spark.rdd.RDD.iterator(RDD.scala:331)
+        at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+        at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:367)
+        at org.apache.spark.rdd.RDD.iterator(RDD.scala:331)
+        at org.apache.spark.shuffle.ShuffleWriteProcessor.write(ShuffleWriteProcessor.scala:59)
+        at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:104)
+        at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:54)
+        at org.apache.spark.TaskContext.runTaskWithListeners(TaskContext.scala:166)
+        at org.apache.spark.scheduler.Task.run(Task.scala:141)
+        at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$4(Executor.scala:620)
+        at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally(SparkErrorUtils.scala:64)
+        at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally$(SparkErrorUtils.scala:61)
+        at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:94)
+        at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:623)
+        at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+        at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+        at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: java.lang.RuntimeException: org.deeplearning4j.exception.DL4JInvalidInputException: Input size (100 columns; shape = [32, 100]) is invalid: does not match layer input size (layer # inputs = 400) (layer name: layer0, layer index: 0, layer type: DenseLayer)
+        at org.deeplearning4j.parallelism.trainer.DefaultTrainer.run(DefaultTrainer.java:446)
+        at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+        at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+        at org.deeplearning4j.parallelism.ParallelWrapper$2$1.run(ParallelWrapper.java:156)
+        ... 1 more
+Caused by: org.deeplearning4j.exception.DL4JInvalidInputException: Input size (100 columns; shape = [32, 100]) is invalid: does not match layer input size (layer # inputs = 400) (layer name: layer0, layer index: 0, layer type: DenseLayer)
+        at org.deeplearning4j.nn.layers.BaseLayer.preOutputWithPreNorm(BaseLayer.java:318)
+        at org.deeplearning4j.nn.layers.BaseLayer.preOutput(BaseLayer.java:296)
+        at org.deeplearning4j.nn.layers.BaseLayer.activate(BaseLayer.java:344)
+        at org.deeplearning4j.nn.layers.AbstractLayer.activate(AbstractLayer.java:262)
+        at org.deeplearning4j.nn.multilayer.MultiLayerNetwork.ffToLayerActivationsInWs(MultiLayerNetwork.java:1147)
+        at org.deeplearning4j.nn.multilayer.MultiLayerNetwork.computeGradientAndScore(MultiLayerNetwork.java:2798)
+        at org.deeplearning4j.nn.multilayer.MultiLayerNetwork.computeGradientAndScore(MultiLayerNetwork.java:2756)
+        at org.deeplearning4j.optimize.solvers.BaseOptimizer.gradientAndScore(BaseOptimizer.java:174)
+        at org.deeplearning4j.optimize.solvers.StochasticGradientDescent.optimize(StochasticGradientDescent.java:61)
+        at org.deeplearning4j.optimize.Solver.optimize(Solver.java:52)
+        at org.deeplearning4j.nn.multilayer.MultiLayerNetwork.fitHelper(MultiLayerNetwork.java:2357)
+        at org.deeplearning4j.nn.multilayer.MultiLayerNetwork.fit(MultiLayerNetwork.java:2315)
+        at org.deeplearning4j.nn.multilayer.MultiLayerNetwork.fit(MultiLayerNetwork.java:2378)
+        at org.deeplearning4j.parallelism.trainer.DefaultTrainer.fit(DefaultTrainer.java:233)
+        at org.deeplearning4j.parallelism.trainer.DefaultTrainer.run(DefaultTrainer.java:382)
+        ... 4 more
+
+Driver stacktrace:
+        at org.apache.spark.scheduler.DAGScheduler.failJobAndIndependentStages(DAGScheduler.scala:2856)
+        at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2(DAGScheduler.scala:2792)
+        at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2$adapted(DAGScheduler.scala:2791)
+        at scala.collection.mutable.ResizableArray.foreach(ResizableArray.scala:62)
+        at scala.collection.mutable.ResizableArray.foreach$(ResizableArray.scala:55)
+        at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:49)
+        at org.apache.spark.scheduler.DAGScheduler.abortStage(DAGScheduler.scala:2791)
+        at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1(DAGScheduler.scala:1247)
+        at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1$adapted(DAGScheduler.scala:1247)
+        at scala.Option.foreach(Option.scala:407)
+        at org.apache.spark.scheduler.DAGScheduler.handleTaskSetFailed(DAGScheduler.scala:1247)
+        at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.doOnReceive(DAGScheduler.scala:3060)
+        at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2994)
+        at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:2983)
+        at org.apache.spark.util.EventLoop$$anon$1.run(EventLoop.scala:49)
+        at org.apache.spark.scheduler.DAGScheduler.runJob(DAGScheduler.scala:989)
+        at org.apache.spark.SparkContext.runJob(SparkContext.scala:2393)
+        at org.apache.spark.SparkContext.runJob(SparkContext.scala:2488)
+        at org.apache.spark.rdd.RDD.$anonfun$fold$1(RDD.scala:1202)
+        at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)
+        at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:112)
+        at org.apache.spark.rdd.RDD.withScope(RDD.scala:410)
+        at org.apache.spark.rdd.RDD.fold(RDD.scala:1196)
+        at org.apache.spark.rdd.RDD.$anonfun$treeAggregate$2(RDD.scala:1289)
+        at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)
+        at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:112)
+        at org.apache.spark.rdd.RDD.withScope(RDD.scala:410)
+        at org.apache.spark.rdd.RDD.treeAggregate(RDD.scala:1256)
+        at org.apache.spark.rdd.RDD.$anonfun$treeAggregate$1(RDD.scala:1242)
+        at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)
+        at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:112)
+        at org.apache.spark.rdd.RDD.withScope(RDD.scala:410)
+        at org.apache.spark.rdd.RDD.treeAggregate(RDD.scala:1242)
+        at org.apache.spark.api.java.JavaRDDLike.treeAggregate(JavaRDDLike.scala:440)
+        at org.apache.spark.api.java.JavaRDDLike.treeAggregate$(JavaRDDLike.scala:435)
+        at org.apache.spark.api.java.AbstractJavaRDDLike.treeAggregate(JavaRDDLike.scala:45)
+        at org.deeplearning4j.spark.parameterserver.training.SharedTrainingMaster.processResults(SharedTrainingMaster.java:646)
+        at org.deeplearning4j.spark.parameterserver.training.SharedTrainingMaster.doIterationPaths(SharedTrainingMaster.java:885)
+        at org.deeplearning4j.spark.parameterserver.training.SharedTrainingMaster.executeTrainingPathsHelper(SharedTrainingMaster.java:418)
+        at org.deeplearning4j.spark.parameterserver.training.SharedTrainingMaster.executeTraining(SharedTrainingMaster.java:571)
+        at org.deeplearning4j.spark.impl.multilayer.SparkDl4jMultiLayer.fit(SparkDl4jMultiLayer.java:259)
+        at org.deeplearning4j.spark.impl.multilayer.SparkDl4jMultiLayer.fit(SparkDl4jMultiLayer.java:246)
+        at SparkTrain.$anonfun$Trainer$7(SparkTrain.scala:156)
+        at scala.collection.immutable.Range.foreach$mVc$sp(Range.scala:158)
+        at SparkTrain.Trainer(SparkTrain.scala:154)
+        at MapReduce$.main(MapReduce.scala:123)
+        at MapReduce.main(MapReduce.scala)
+        at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+        at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+        at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+        at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+        at org.apache.spark.deploy.JavaMainApplication.start(SparkApplication.scala:52)
+        at org.apache.spark.deploy.SparkSubmit.org$apache$spark$deploy$SparkSubmit$$runMain(SparkSubmit.scala:1029)
+        at org.apache.spark.deploy.SparkSubmit.doRunMain$1(SparkSubmit.scala:194)
+        at org.apache.spark.deploy.SparkSubmit.submit(SparkSubmit.scala:217)
+        at org.apache.spark.deploy.SparkSubmit.doSubmit(SparkSubmit.scala:91)
+        at org.apache.spark.deploy.SparkSubmit$$anon$2.doSubmit(SparkSubmit.scala:1120)
+        at org.apache.spark.deploy.SparkSubmit$.main(SparkSubmit.scala:1129)
+        at org.apache.spark.deploy.SparkSubmit.main(SparkSubmit.scala)
+Caused by: java.lang.RuntimeException: Training failed due to exception in ParallelWrapper fit operation
+        at org.deeplearning4j.spark.parameterserver.pw.SharedTrainingWrapper.run(SharedTrainingWrapper.java:551)
+        at org.deeplearning4j.spark.parameterserver.functions.SharedFlatMapPaths.call(SharedFlatMapPaths.java:86)
+        at org.deeplearning4j.spark.parameterserver.functions.SharedFlatMapPaths.call(SharedFlatMapPaths.java:41)
+        at org.apache.spark.api.java.JavaRDDLike.$anonfun$mapPartitions$1(JavaRDDLike.scala:153)
+        at org.apache.spark.rdd.RDD.$anonfun$mapPartitions$2(RDD.scala:858)
+        at org.apache.spark.rdd.RDD.$anonfun$mapPartitions$2$adapted(RDD.scala:858)
+        at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+        at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:367)
+        at org.apache.spark.rdd.RDD.iterator(RDD.scala:331)
+        at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+        at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:367)
+        at org.apache.spark.rdd.RDD.iterator(RDD.scala:331)
+        at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+        at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:367)
+        at org.apache.spark.rdd.RDD.iterator(RDD.scala:331)
+        at org.apache.spark.shuffle.ShuffleWriteProcessor.write(ShuffleWriteProcessor.scala:59)
+        at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:104)
+        at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:54)
+        at org.apache.spark.TaskContext.runTaskWithListeners(TaskContext.scala:166)
+        at org.apache.spark.scheduler.Task.run(Task.scala:141)
+        at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$4(Executor.scala:620)
+        at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally(SparkErrorUtils.scala:64)
+        at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally$(SparkErrorUtils.scala:61)
+        at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:94)
+        at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:623)
+        at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+        at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+        at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: java.lang.RuntimeException: org.deeplearning4j.exception.DL4JInvalidInputException: Input size (100 columns; shape = [32, 100]) is invalid: does not match layer input size (layer # inputs = 400) (layer name: layer0, layer index: 0, layer type: DenseLayer)
+        at org.deeplearning4j.parallelism.trainer.DefaultTrainer.run(DefaultTrainer.java:446)
+        at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+        at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+        at org.deeplearning4j.parallelism.ParallelWrapper$2$1.run(ParallelWrapper.java:156)
+        ... 1 more
+Caused by: org.deeplearning4j.exception.DL4JInvalidInputException: Input size (100 columns; shape = [32, 100]) is invalid: does not match layer input size (layer # inputs = 400) (layer name: layer0, layer index: 0, layer type: DenseLayer)
+        at org.deeplearning4j.nn.layers.BaseLayer.preOutputWithPreNorm(BaseLayer.java:318)
+        at org.deeplearning4j.nn.layers.BaseLayer.preOutput(BaseLayer.java:296)
+        at org.deeplearning4j.nn.layers.BaseLayer.activate(BaseLayer.java:344)
+        at org.deeplearning4j.nn.layers.AbstractLayer.activate(AbstractLayer.java:262)
+        at org.deeplearning4j.nn.multilayer.MultiLayerNetwork.ffToLayerActivationsInWs(MultiLayerNetwork.java:1147)
+        at org.deeplearning4j.nn.multilayer.MultiLayerNetwork.computeGradientAndScore(MultiLayerNetwork.java:2798)
+        at org.deeplearning4j.nn.multilayer.MultiLayerNetwork.computeGradientAndScore(MultiLayerNetwork.java:2756)
+        at org.deeplearning4j.optimize.solvers.BaseOptimizer.gradientAndScore(BaseOptimizer.java:174)
+        at org.deeplearning4j.optimize.solvers.StochasticGradientDescent.optimize(StochasticGradientDescent.java:61)
+        at org.deeplearning4j.optimize.Solver.optimize(Solver.java:52)
+        at org.deeplearning4j.nn.multilayer.MultiLayerNetwork.fitHelper(MultiLayerNetwork.java:2357)
+        at org.deeplearning4j.nn.multilayer.MultiLayerNetwork.fit(MultiLayerNetwork.java:2315)
+        at org.deeplearning4j.nn.multilayer.MultiLayerNetwork.fit(MultiLayerNetwork.java:2378)
+        at org.deeplearning4j.parallelism.trainer.DefaultTrainer.fit(DefaultTrainer.java:233)
+        at org.deeplearning4j.parallelism.trainer.DefaultTrainer.run(DefaultTrainer.java:382)
+        ... 4 more
+24/11/03 22:35:00 INFO SparkContext: Invoking stop() from shutdown hook
+24/11/03 22:35:00 INFO SparkContext: SparkContext is stopping with exitCode 0.
+24/11/03 22:35:00 INFO SparkUI: Stopped Spark web UI at http://10.0.0.230:4040
+24/11/03 22:35:00 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
+24/11/03 22:35:00 INFO MemoryStore: MemoryStore cleared
+24/11/03 22:35:00 INFO BlockManager: BlockManager stopped
+24/11/03 22:35:00 INFO BlockManagerMaster: BlockManagerMaster stopped
+24/11/03 22:35:00 INFO OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
+24/11/03 22:35:00 WARN SparkEnv: Exception while deleting Spark temp dir: C:\Users\yashu\AppData\Local\Temp\spark-25d1dcdf-e2f3-4c45-a87b-e5062bd6f65d\userFiles-69969d24-5629-42e8-ac31-0c870fe20e7f
+java.io.IOException: Failed to delete: C:\Users\yashu\AppData\Local\Temp\spark-25d1dcdf-e2f3-4c45-a87b-e5062bd6f65d\userFiles-69969d24-5629-42e8-ac31-0c870fe20e7f\Cloud LLM-assembly-0.1.0-SNAPSHOT.jar
+        at org.apache.spark.network.util.JavaUtils.deleteRecursivelyUsingJavaIO(JavaUtils.java:147)
+        at org.apache.spark.network.util.JavaUtils.deleteRecursively(JavaUtils.java:117)
+        at org.apache.spark.network.util.JavaUtils.deleteRecursivelyUsingJavaIO(JavaUtils.java:130)
+        at org.apache.spark.network.util.JavaUtils.deleteRecursively(JavaUtils.java:117)
+        at org.apache.spark.network.util.JavaUtils.deleteRecursively(JavaUtils.java:90)
+        at org.apache.spark.util.SparkFileUtils.deleteRecursively(SparkFileUtils.scala:121)
+        at org.apache.spark.util.SparkFileUtils.deleteRecursively$(SparkFileUtils.scala:120)
+        at org.apache.spark.util.Utils$.deleteRecursively(Utils.scala:1126)
+        at org.apache.spark.SparkEnv.stop(SparkEnv.scala:108)
+        at org.apache.spark.SparkContext.$anonfun$stop$25(SparkContext.scala:2305)
+        at org.apache.spark.util.Utils$.tryLogNonFatalError(Utils.scala:1375)
+        at org.apache.spark.SparkContext.stop(SparkContext.scala:2305)
+        at org.apache.spark.SparkContext.stop(SparkContext.scala:2211)
+        at org.apache.spark.SparkContext.$anonfun$new$34(SparkContext.scala:681)
+        at org.apache.spark.util.SparkShutdownHook.run(ShutdownHookManager.scala:214)
+        at org.apache.spark.util.SparkShutdownHookManager.$anonfun$runAll$2(ShutdownHookManager.scala:188)
+        at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+        at org.apache.spark.util.Utils$.logUncaughtExceptions(Utils.scala:1928)
+        at org.apache.spark.util.SparkShutdownHookManager.$anonfun$runAll$1(ShutdownHookManager.scala:188)
+        at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+        at scala.util.Try$.apply(Try.scala:213)
+        at org.apache.spark.util.SparkShutdownHookManager.runAll(ShutdownHookManager.scala:188)
+        at org.apache.spark.util.SparkShutdownHookManager$$anon$2.run(ShutdownHookManager.scala:178)
+        at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+        at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+        at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+        at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+        at java.base/java.lang.Thread.run(Thread.java:834)
+24/11/03 22:35:00 INFO SparkContext: Successfully stopped SparkContext
+24/11/03 22:35:00 INFO ShutdownHookManager: Shutdown hook called
+24/11/03 22:35:00 INFO ShutdownHookManager: Deleting directory C:\Users\yashu\AppData\Local\Temp\spark-25d1dcdf-e2f3-4c45-a87b-e5062bd6f65d
+24/11/03 22:35:00 ERROR ShutdownHookManager: Exception while deleting Spark temp dir: C:\Users\yashu\AppData\Local\Temp\spark-25d1dcdf-e2f3-4c45-a87b-e5062bd6f65d
+java.io.IOException: Failed to delete: C:\Users\yashu\AppData\Local\Temp\spark-25d1dcdf-e2f3-4c45-a87b-e5062bd6f65d\userFiles-69969d24-5629-42e8-ac31-0c870fe20e7f\Cloud LLM-assembly-0.1.0-SNAPSHOT.jar
+        at org.apache.spark.network.util.JavaUtils.deleteRecursivelyUsingJavaIO(JavaUtils.java:147)
+        at org.apache.spark.network.util.JavaUtils.deleteRecursively(JavaUtils.java:117)
+        at org.apache.spark.network.util.JavaUtils.deleteRecursivelyUsingJavaIO(JavaUtils.java:130)
+        at org.apache.spark.network.util.JavaUtils.deleteRecursively(JavaUtils.java:117)
+        at org.apache.spark.network.util.JavaUtils.deleteRecursivelyUsingJavaIO(JavaUtils.java:130)
+        at org.apache.spark.network.util.JavaUtils.deleteRecursively(JavaUtils.java:117)
+        at org.apache.spark.network.util.JavaUtils.deleteRecursively(JavaUtils.java:90)
+        at org.apache.spark.util.SparkFileUtils.deleteRecursively(SparkFileUtils.scala:121)
+        at org.apache.spark.util.SparkFileUtils.deleteRecursively$(SparkFileUtils.scala:120)
+        at org.apache.spark.util.Utils$.deleteRecursively(Utils.scala:1126)
+        at org.apache.spark.util.ShutdownHookManager$.$anonfun$new$4(ShutdownHookManager.scala:65)
+        at org.apache.spark.util.ShutdownHookManager$.$anonfun$new$4$adapted(ShutdownHookManager.scala:62)
+        at scala.collection.IndexedSeqOptimized.foreach(IndexedSeqOptimized.scala:36)
+        at scala.collection.IndexedSeqOptimized.foreach$(IndexedSeqOptimized.scala:33)
+        at scala.collection.mutable.ArrayOps$ofRef.foreach(ArrayOps.scala:198)
+        at org.apache.spark.util.ShutdownHookManager$.$anonfun$new$2(ShutdownHookManager.scala:62)
+        at org.apache.spark.util.SparkShutdownHook.run(ShutdownHookManager.scala:214)
+        at org.apache.spark.util.SparkShutdownHookManager.$anonfun$runAll$2(ShutdownHookManager.scala:188)
+        at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+        at org.apache.spark.util.Utils$.logUncaughtExceptions(Utils.scala:1928)
+        at org.apache.spark.util.SparkShutdownHookManager.$anonfun$runAll$1(ShutdownHookManager.scala:188)
+        at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+        at scala.util.Try$.apply(Try.scala:213)
+        at org.apache.spark.util.SparkShutdownHookManager.runAll(ShutdownHookManager.scala:188)
+        at org.apache.spark.util.SparkShutdownHookManager$$anon$2.run(ShutdownHookManager.scala:178)
+        at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+        at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+        at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+        at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+        at java.base/java.lang.Thread.run(Thread.java:834)
+24/11/03 22:35:00 INFO ShutdownHookManager: Deleting directory C:\Users\yashu\AppData\Local\Temp\spark-f894a9d9-961b-4b84-b38a-a21c9bf4eed6
+24/11/03 22:35:00 INFO ShutdownHookManager: Deleting directory C:\Users\yashu\AppData\Local\Temp\spark-25d1dcdf-e2f3-4c45-a87b-e5062bd6f65d\userFiles-69969d24-5629-42e8-ac31-0c870fe20e7f
+24/11/03 22:35:00 ERROR ShutdownHookManager: Exception while deleting Spark temp dir: C:\Users\yashu\AppData\Local\Temp\spark-25d1dcdf-e2f3-4c45-a87b-e5062bd6f65d\userFiles-69969d24-5629-42e8-ac31-0c870fe20e7f
+java.io.IOException: Failed to delete: C:\Users\yashu\AppData\Local\Temp\spark-25d1dcdf-e2f3-4c45-a87b-e5062bd6f65d\userFiles-69969d24-5629-42e8-ac31-0c870fe20e7f\Cloud LLM-assembly-0.1.0-SNAPSHOT.jar
+        at org.apache.spark.network.util.JavaUtils.deleteRecursivelyUsingJavaIO(JavaUtils.java:147)
+        at org.apache.spark.network.util.JavaUtils.deleteRecursively(JavaUtils.java:117)
+        at org.apache.spark.network.util.JavaUtils.deleteRecursivelyUsingJavaIO(JavaUtils.java:130)
+        at org.apache.spark.network.util.JavaUtils.deleteRecursively(JavaUtils.java:117)
+        at org.apache.spark.network.util.JavaUtils.deleteRecursively(JavaUtils.java:90)
+        at org.apache.spark.util.SparkFileUtils.deleteRecursively(SparkFileUtils.scala:121)
+        at org.apache.spark.util.SparkFileUtils.deleteRecursively$(SparkFileUtils.scala:120)
+        at org.apache.spark.util.Utils$.deleteRecursively(Utils.scala:1126)
+        at org.apache.spark.util.ShutdownHookManager$.$anonfun$new$4(ShutdownHookManager.scala:65)
+        at org.apache.spark.util.ShutdownHookManager$.$anonfun$new$4$adapted(ShutdownHookManager.scala:62)
+        at scala.collection.IndexedSeqOptimized.foreach(IndexedSeqOptimized.scala:36)
+        at scala.collection.IndexedSeqOptimized.foreach$(IndexedSeqOptimized.scala:33)
+        at scala.collection.mutable.ArrayOps$ofRef.foreach(ArrayOps.scala:198)
+        at org.apache.spark.util.ShutdownHookManager$.$anonfun$new$2(ShutdownHookManager.scala:62)
+        at org.apache.spark.util.SparkShutdownHook.run(ShutdownHookManager.scala:214)
+        at org.apache.spark.util.SparkShutdownHookManager.$anonfun$runAll$2(ShutdownHookManager.scala:188)
+        at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+        at org.apache.spark.util.Utils$.logUncaughtExceptions(Utils.scala:1928)
+        at org.apache.spark.util.SparkShutdownHookManager.$anonfun$runAll$1(ShutdownHookManager.scala:188)
+        at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+        at scala.util.Try$.apply(Try.scala:213)
+        at org.apache.spark.util.SparkShutdownHookManager.runAll(ShutdownHookManager.scala:188)
+        at org.apache.spark.util.SparkShutdownHookManager$$anon$2.run(ShutdownHookManager.scala:178)
+        at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+        at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+        at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+        at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+        at java.base/java.lang.Thread.run(Thread.java:834)
+
+C:\Windows\System32>

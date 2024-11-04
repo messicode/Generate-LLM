@@ -52,10 +52,10 @@ class DataPrep {
     }
   }
 
-//  def createSlidingWindows(tokenizedShards: List[List[String]], windowSize: Int, shift: Int): List[List[String]] = {
-//    logger.info(s"Creating sliding windows with window size $windowSize and shift $shift.")
-//    tokenizedShards.flatMap { tokens =>
-//      tokens.sliding(windowSize, shift).toList
-//    }
-//  }
+  def createSlidingWindows(tokenizedShards: List[List[String]], windowSize: Int, shift: Int): List[List[String]] = {
+    logger.info(s"Creating sliding windows with window size $windowSize and shift $shift.")
+    tokenizedShards.flatMap { tokens =>
+      tokens.sliding(windowSize, shift).toList
+    }
+  }
 }

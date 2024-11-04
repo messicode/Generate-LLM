@@ -18,7 +18,7 @@ class TokenizationMapper extends Mapper[LongWritable, Text, Text, IntWritable] {
     val tokens = dataPrep.tokenize(shards)
 
     if (tokens != null) {
-      tokens.flatten.foreach(token => context.write(new Text(token), IntWritable(1)))
+      tokens.flatten.foreach(token => context.write(new Text(token),new IntWritable(1)))
     } // Emit each token
     else
       {

@@ -54,10 +54,13 @@ project-root/
 
 2. **Navigate to the root directory**:
 ~~~
-cd /path/to/root/folder/LaiYang/
+cd /path/to/root/folder/
 ~~~
 3. **Build the Application**: ``` sbt compile ```
-4. **Run the Application**: ```sbt run```
+4. **Run the Application**: 
+~~~
+sbt run MapReduce "C:/441 Cloud/Project/Cloud LLM/src/main/resources/input/pg1.txt" "C:/441 Cloud/Project/Cloud LLM/src/main/resources/output" "C:/441 Cloud/Project/Cloud LLM/src/main/resources/output/embeddings.csv"
+~~~
 5. **Detailed output**: Output commands (commented) are provided to see other type of messages but by default only snapshot at each process are displayed.
 6. **Logging**: If logs are needed in a .txt file or cmd doesn't display all the output (due to buffer limits) please use : ``` sbt run > file_name.txt ``` which will create a file in root directory.
 7. **Input variations**: Different input .dot files are already placed in the root folder which can be run by modifying the name in ```val neighborMap = readNeighborMap("neighbors50.dot")``` line. Just replace the file_name with the input files.

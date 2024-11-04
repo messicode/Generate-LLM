@@ -5,7 +5,6 @@ import org.deeplearning4j.text.sentenceiterator.CollectionSentenceIterator
 import scala.jdk.CollectionConverters._
 import org.slf4j.LoggerFactory
 import com.typesafe.config.ConfigFactory
-import scala.compiletime.uninitialized
 
 class EmbeddingMapper extends Mapper[LongWritable, Text, Text, Text] {
   private val logger = LoggerFactory.getLogger(classOf[EmbeddingMapper])
@@ -18,7 +17,7 @@ class EmbeddingMapper extends Mapper[LongWritable, Text, Text, Text] {
   private val sentences = scala.collection.mutable.ListBuffer[String]()
 
 
-  override def map(key: LongWritable, value: Text, context: Context): Unit = {
+  def map(key: LongWritable, value: Text, context: Context): Unit = {
     val tokens = value.toString.split("\\s+")
     sentences ++= tokens.toList
 

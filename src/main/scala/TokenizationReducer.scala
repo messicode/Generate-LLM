@@ -1,6 +1,5 @@
 import org.apache.hadoop.io.{Text, IntWritable}
 import org.apache.hadoop.mapreduce.Reducer
-import scala.compiletime.uninitialized
 import com.typesafe.config.ConfigFactory
 import java.io.PrintWriter
 import org.apache.hadoop.fs.{Path,FileSystem}
@@ -29,7 +28,5 @@ class TokenizationReducer extends Reducer[Text, IntWritable, Text, IntWritable] 
     writer.close() // Close the writer
 
   }
-
-
 
 }

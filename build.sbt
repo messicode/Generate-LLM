@@ -1,6 +1,9 @@
 ThisBuild / version := "0.1.0-SNAPSHOT"
 
-ThisBuild / scalaVersion := "3.5.0"
+ThisBuild / scalaVersion := "2.12.20"
+
+val sparkVer="3.5.3"
+val dl4jVer="1.0.0-M2.1"
 
 lazy val root = (project in file("."))
   .settings(
@@ -8,9 +11,16 @@ lazy val root = (project in file("."))
 
     libraryDependencies ++= Seq(
       // DeepLearning4J and Jtokkit dependencies
-      "org.deeplearning4j" % "deeplearning4j-core" % "1.0.0-M2.1",
-      "org.nd4j" % "nd4j-native-platform" % "1.0.0-M2.1",
-      "org.deeplearning4j" % "deeplearning4j-nlp" % "1.0.0-M2.1",
+      "org.deeplearning4j" % "deeplearning4j-core" % dl4jVer,
+      "org.nd4j" % "nd4j-native" % dl4jVer,
+      "org.nd4j" % "nd4j-native-platform" % dl4jVer,
+      "org.deeplearning4j" % "deeplearning4j-nlp" % dl4jVer,
+      "org.deeplearning4j" % "dl4j-spark-parameterserver_2.12" % dl4jVer,
+
+      "org.deeplearning4j" % "dl4j-spark_2.12" % dl4jVer,
+      "org.apache.spark" % "spark-core_2.12" % sparkVer,
+      "org.apache.spark" % "spark-mllib_2.12" % sparkVer,
+
       "com.knuddels" % "jtokkit" % "1.1.0",
 
       //For logging

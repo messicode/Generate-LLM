@@ -6,7 +6,8 @@ import org.nd4j.linalg.api.ndarray.INDArray
 import java.io.PrintWriter
 import org.apache.hadoop.fs.{Path,FileSystem}
 import org.apache.hadoop.conf.Configuration
-import scala.jdk.CollectionConverters.*
+import scala.collection.JavaConverters._
+
 import org.slf4j.LoggerFactory
 
 
@@ -16,7 +17,7 @@ class EmbeddingReducer extends Reducer[Text, Text, Text, Text] {
   //Need to collect all output embeddings
   private val outputList = new scala.collection.mutable.ListBuffer[(Text, Text)]()
 
-  override def reduce(key: Text, values: java.lang.Iterable[Text], context: Context): Unit = {
+   def reduce(key: Text, values: java.lang.Iterable[Text], context: Context): Unit = {
 
     val vectors: List[INDArray] = values.asScala.toList.map { value =>
 
