@@ -22,11 +22,9 @@ project-root/
 ├── src/
 │   ├── main/
 │   │   ├── scala/
-│   │   │   ├── MainApp.scala    # Main entry point for the Hadoop jobs
-│   │   │   ├── TokenizationMapper.scala # Mapper for tokenization logic
-│   │   │   ├── TokenizationReducer.scala # Reducer for aggregating tokens
-│   │   │   ├── EmbeddingMapper.scala     # Mapper for generating embeddings
-│   │   │   └── EmbeddingReducer.scala     # Reducer for finalizing embeddings
+│   │   │   ├── MapReduce.scala    # Main entry point for the Hadoop jobs
+│   │   │   ├── FetchEmbd.scala # Mapper for tokenization logic
+│   │   │   ├── SparkTrain.scala # Reducer for aggregating tokens
 │   │   └── resources/
 │   │       └── application.conf         # Configuration settings for the application
 │   ├── test/
