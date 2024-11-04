@@ -194,6 +194,50 @@ A sample output of trained LLM model's configuration.json file:
 }
 ```
 
+### Metrics in logger:
+```
+Starting epoch 1
+24/11/04 09:00:45 INFO EncodingHandler: Threshold at iter 0, epoch 0 [thread 288]: 1e-4, DENSE updates
+24/11/04 09:00:46 INFO ScoreIterationListener: Score at iteration 0 is 0.3815383529663086
+24/11/04 09:00:46 INFO ScoreIterationListener: Score at iteration 0 is 0.3684787368774414
+24/11/04 09:00:46 INFO ScoreIterationListener: Score at iteration 0 is 0.3183127212524414
+24/11/04 09:00:46 INFO ScoreIterationListener: Score at iteration 0 is 0.4339635049143145
+24/11/04 09:00:47 INFO SparkTrain: Epoch 1 complete.
+24/11/04 09:00:47 INFO SparkTrain: Learning rate for epoch 1: 0.0096
+24/11/04 09:00:47 INFO SparkTrain: Time for 1:9373ms
+Starting epoch 2
+24/11/04 09:00:47 INFO SharedTrainingMaster: Starting training of split 1 of 1. workerMiniBatchSize=32, thresholdAlgorithm=AdaptiveThresholdAlgorithm(initialThreshold=1.0E-4,minTargetSparsity=1.0E-4,maxTargetSparsity=0.01,decayRate=0.9659363289248456,lastThreshold=1.0E-4), Configured for 12 workers
+24/11/04 09:00:47 INFO SharedTrainingMaster: Repartitioning training data using repartitioner: DefaultRepartitioner(maxPartitions=5000)
+24/11/04 09:00:49 INFO SparkTrain: Epoch 2 complete.
+24/11/04 09:00:49 INFO SparkTrain: Learning rate for epoch 2: 0.009216
+24/11/04 09:00:49 INFO SparkTrain: Time for 2:1715ms
+24/11/04 09:00:49 INFO SparkTrain: Starting epoch 3
+24/11/04 09:00:50 INFO SparkTrain: Epoch 3 complete.
+24/11/04 09:00:50 INFO SparkTrain: Learning rate for epoch 3: 0.008847359999999999
+24/11/04 09:00:50 INFO SparkTrain: Time for 3:1698ms
+24/11/04 09:00:50 INFO SparkTrain: Starting epoch 4
+24/11/04 09:00:51 INFO SharedTrainingMaster: Starting training of split 1 of 1. workerMiniBatchSize=32, thresholdAlgorithm=AdaptiveThresholdAlgorithm(initialThreshold=1.0E-4,minTargetSparsity=1.0E-4,maxTargetSparsity=0.01,decayRate=0.9659363289248456,lastThreshold=1.0E-4), Configured for 12 workers
+24/11/04 09:00:51 INFO SharedTrainingMaster: Repartitioning training data using repartitioner: DefaultRepartitioner(maxPartitions=5000)
+24/11/04 09:00:51 INFO SharedTrainingMaster: Starting training of split 1 of 1. workerMiniBatchSize=32, thresholdAlgorithm=AdaptiveThresholdAlgorithm(initialThreshold=1.0E-4,minTargetSparsity=1.0E-4,maxTargetSparsity=0.01,decayRate=0.9659363289248456,lastThreshold=1.0E-4), Configured for 12 workers
+24/11/04 09:00:51 INFO DAGScheduler: ShuffleMapStage 20
+
+24/11/04 09:00:52 INFO SparkTrain: Epoch 4 complete.
+24/11/04 09:00:52 INFO SparkTrain: Learning rate for epoch 4: 0.008493465599999998
+24/11/04 09:00:52 INFO SparkTrain: Time for 4:1670ms
+24/11/04 09:00:52 INFO SparkTrain: Starting epoch 5
+24/11/04 09:00:52 INFO SharedTrainingMaster: Starting training of split 1 of 1. workerMiniBatchSize=32, thresholdAlgorithm=AdaptiveThresholdAlgorithm(initialThreshold=1.0E-4,minTargetSparsity=1.0E-4,maxTargetSparsity=0.01,decayRate=0.9659363289248456,lastThreshold=1.0E-4), Configured for 12 workers
+24/11/04 09:00:52 INFO DAGScheduler: Submitting 2 missing tasks from ShuffleMapStage 25 (MapPartitionsRDD[47] at mapToPair at SparkUtils.java:415) (first 15 tasks are for partitions Vector(0, 1))
+24/11/04 09:00:52 INFO DAGScheduler: ShuffleMapStage 25
+24/11/04 09:00:52 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 1 ms
+24/11/04 09:00:52 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+24/11/04 09:00:52 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 1 ms
+24/11/04 09:00:52 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 1 ms
+24/11/04 09:00:54 INFO SparkTrain: Epoch 5 complete.
+24/11/04 09:00:54 INFO SparkTrain: Learning rate for epoch 5: 0.008153726976
+24/11/04 09:00:54 INFO SparkTrain: Time for 5:1650ms
+24/11/04 09:00:54 INFO SparkTrain: Save the model to location: C:/441 Cloud/Project/Cloud LLM/src/main/resources/input/pg1.txt
+
+```
 
 
 
